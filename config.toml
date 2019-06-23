@@ -1,7 +1,7 @@
 # Changed publish directory for Github Pages
 publishDir = "docs"
 
-baseURL = "https://example.com"
+baseURL = "https://posts.dwhacademy.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Cayman"
