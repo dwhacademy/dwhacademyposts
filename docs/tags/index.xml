@@ -1,175 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cayman</title>
+    <title>Tags on DWH Academy Posts</title>
     <link>https://posts.dwhacademy.com/tags/</link>
-    <description>Recent content in Tags on Cayman</description>
+    <description>Recent content in Tags on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>markdown</title>
-      <link>https://posts.dwhacademy.com/tags/markdown/</link>
-      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      <title>design</title>
+      <link>https://posts.dwhacademy.com/tags/design/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://posts.dwhacademy.com/tags/markdown/</guid>
+      <guid>https://posts.dwhacademy.com/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>typography</title>
-      <link>https://posts.dwhacademy.com/tags/typography/</link>
-      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      <title>dwh</title>
+      <link>https://posts.dwhacademy.com/tags/dwh/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://posts.dwhacademy.com/tags/typography/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://posts.dwhacademy.com/tags/hugo/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>katex</title>
-      <link>https://posts.dwhacademy.com/tags/katex/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/katex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://posts.dwhacademy.com/tags/math/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>typesetting</title>
-      <link>https://posts.dwhacademy.com/tags/typesetting/</link>
-      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/typesetting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>earth</title>
-      <link>https://posts.dwhacademy.com/tags/earth/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/earth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>figure</title>
-      <link>https://posts.dwhacademy.com/tags/figure/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/figure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>moon</title>
-      <link>https://posts.dwhacademy.com/tags/moon/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/moon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nasa</title>
-      <link>https://posts.dwhacademy.com/tags/nasa/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/nasa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://posts.dwhacademy.com/tags/shortcodes/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sun</title>
-      <link>https://posts.dwhacademy.com/tags/sun/</link>
-      <pubDate>Thu, 27 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/sun/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>https://posts.dwhacademy.com/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://posts.dwhacademy.com/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://posts.dwhacademy.com/tags/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>templates</title>
-      <link>https://posts.dwhacademy.com/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://posts.dwhacademy.com/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jekyll</title>
-      <link>https://posts.dwhacademy.com/tags/jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/jekyll/</guid>
+      <guid>https://posts.dwhacademy.com/tags/dwh/</guid>
       <description></description>
     </item>
     

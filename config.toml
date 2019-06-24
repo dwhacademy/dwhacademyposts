@@ -4,7 +4,7 @@ publishDir = "docs"
 baseURL = "https://posts.dwhacademy.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Cayman"
+title = "DWH Academy Posts"
 theme = "cayman-hugo-theme"
 
 # Google analytics
@@ -25,15 +25,15 @@ pygmentsStyle = "pygments"
 
 [params]
   # Header text, can be markdown
-  project_name = "Cayman Hugo Theme"
-  project_tagline = "A clean, responsive Hugo theme, ported from the original Jekyll Cayman theme"
+  project_name = "DWH Academy Posts"
+  project_tagline = "Agile Data warehousing in the practise"
 
   # Date format for post list and single pages
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat = "2006-01-02"
 
   # Footer text, can be markdown
-  footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme). Deployed to [Netlify](https://www.netlify.com/)."
+  footer = "Made with [Hugo](https://gohugo.io/). Themed by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme). Deployed to [GitHub](https://github.com/)."
 
   # If true, the CSS/JS for Katex math typesetting are enabled
   katex = true
@@ -68,14 +68,7 @@ pygmentsStyle = "pygments"
     url = "/"
     weight = 1
   [[menu.nav]]
-    name = "Tags"
-    url = "/tags/"
+    name = "DWH Academy"
+    url = "https://dwhacademy.com"
     weight = 2
-  [[menu.nav]]
-    name = "About"
-    url = "/about/"
-    weight = 3
-  [[menu.nav]]
-    name = "RSS"
-    url = "/index.xml"
-    weight = 4
+

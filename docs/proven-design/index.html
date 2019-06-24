@@ -21,7 +21,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
-  <title>Blog | DWH Academy Posts</title>
+  <title>Proven DWH Design | DWH Academy Posts</title>
 </head>
 
 <body>
@@ -52,18 +52,57 @@
 
   <section class="main-content">
     
-  <h1>Blog</h1>
-<ul>
-
-  <li>
+  <h1>Proven DWH Design</h1>
+  <div>
     
-    2019-06-24
-    <a href="https://posts.dwhacademy.com/proven-design/">
-      Proven DWH Design
-    </a>
-  </li>        
+    <strong>Publish date: </strong>2019-06-24
+  </div>
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/design/">design</a>
+    </div>
+  
+  
 
-</ul>
+<p>There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of the typical successful DWH in the long term.</p>
+
+<h3 id="landing-area">Landing Area</h3>
+
+<p>Imagine the Landing Area as an address, where the files from the source systems arrive. It is the first interface of the DWH, usually some file system organized into directories for each source file. The main goal of the Landing Area is to organize separate source files into batches which can be loaded into a database.</p>
+
+<p>The challenge of the Landing Area is the control over the source files which are usually delivered by external parties. It needs to be recognized when some part of data is missing or when the structure of the data is not satisfying the delivery agreement with the source system. The biggest challenge is to completely automate all that. Frequently, a lot of manual inputs is involved here, and this, in theory, the simplest part of the DWH becomes the real bottleneck.</p>
+
+<h3 id="stage-layer">Stage Layer</h3>
+
+<p>The Stage Layer is the first database layer, where the data from the source files are loaded</p>
+
+<h3 id="integrated-layer">Integrated Layer</h3>
+
+<p>test ste</p>
+
+<h3 id="access-layer">Access Layer</h3>
+
+<p>test ste</p>
+
+<h3 id="data-marts">Data marts</h3>
+
+<p>test ste</p>
+
+  
+
+  
+
 
 
     <footer class="site-footer">
