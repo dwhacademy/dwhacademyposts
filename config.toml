@@ -65,7 +65,7 @@ pygmentsStyle = "pygments"
 
 [menu]
   [[menu.nav]]
-    name = "Blog"
+    name = "Latest"
     url = "/"
     weight = 1
   [[menu.nav]]
