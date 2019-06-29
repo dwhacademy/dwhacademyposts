@@ -1,5 +1,5 @@
 ---
-title: "Lubomir Kamensky: Proven DWH Design"
+title: "Proven DWH Design"
 image: "design"
 date: 2019-06-29
 tags: [dwh, design]

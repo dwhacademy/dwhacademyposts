@@ -19,14 +19,14 @@
   </url>
   
   <url>
-    <loc>https://posts.dwhacademy.com/proven-design/</loc>
-    <lastmod>2019-06-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://posts.dwhacademy.com/post/</loc>
     <lastmod>2019-06-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/proven-design/</loc>
+    <lastmod>2019-06-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -4,6 +4,18 @@
     {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
     <strong>Publish date: </strong>{{ .PublishDate.Format $dateFormat }}
   </div>
+  {{ $authors := slice }}
+  {{ with .Params.authors }}
+    <div>
+      <strong>Authors: </strong>
+      {{ range . }}
+        {{ $href := print ("authors/" | absLangURL) (. | urlize) "/" }}
+        {{ $element := printf "<a href=\"%s\">%s</a>" $href . }}
+        {{ $authors = $authors | append $element }}
+      {{ end }}
+      {{ delimit $authors ", " }}
+    </div>
+  {{ end }}
   {{ $tags := slice }}
   {{ with .Params.tags }}
     <div>
