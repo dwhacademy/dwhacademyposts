@@ -6,7 +6,10 @@ tags: [dwh, design]
 authors:
   - Lubomir Kamensky
 ---
+
 There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of the typical successful DWH in the long term.
+
+<img src="design.png" width="800px" alt="design"/>
 
 ### Landing Area
 Imagine the Landing Area as an address, where the files from the source systems arrive. It is the first interface of the DWH, usually some file system organized into directories for each source file. The main goal of the Landing Area is to organize separate source files into batches which can be loaded into a database.
@@ -17,8 +20,6 @@ The challenge of the Landing Area is the control over the source files which are
 The Stage Layer is the first database layer, where the data from the source files are loaded.  The structure of the data stays the same as the structure of the files, just a few technical columns are added like load timestamp and load identifier.  The goal of the Stage layer is to create a snapshot of the source files from the Landing Area, which is easily accessible by other database layers.  
 
 For further processing, it is necessary to know what kind of source files we have.  There are two main types of source file delivery.  The first one is full snapshot data, the second is incremental data. We are not going to dive into details here, but it is good practice to store the information about the type of source data delivery as another technical column in the Stage layer tables.
-
-<img src="design.png" width="800px" alt="design"/>
 
 ### Integrated Layer
 The Integrated Layer is the topic for a whole book, it is frequently a subject of endless discussions which are often raising a lot of emotions.  I will try to avoid that for now. The Goal of this layer is to Integrate data from multiple sources into one consolidated data model.   The priority is on the optimal data storage and long term maintenance, not on the user-friendly access to the data. The Integrated layer is the core of data warehousing.  It needs to be easily extensible, scalable and allowing to track the history of changes in data.  It is the only layer, where the full history of data in the full detail is available. 

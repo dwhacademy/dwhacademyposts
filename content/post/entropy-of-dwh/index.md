@@ -10,14 +10,14 @@ This is the first post on DWH Academy, starting the series of practical tips on 
 
 When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase.  The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.  To share advises how to gain the trust of the business users, how to build DWH in Agile, what are the proven design patterns in DWH and what are the core principles helping to avoid the experience of Turbo Effect in the entropy increase of your DWH.
 
+<img src="entropy.png" width="800px" alt="entropy"/>
+
 ### Arrow of time
 Increasing entropy defines the direction of time in our Universe. The Universe grows from simple to complex, from ordered to unordered.  Even though the entropy can decrease locally, the global increase of Universe's entropy is irreversible.  That's why entropy is called the arrow of time. It is the same for living and non-living things. Process of aging is driven by increasing entropy.
 
 Entropy is usually described as a measure of disorder in a closed system.  The concept itself is in our world so obvious, that we don't even think about it. It is natural that without additional energy the disorder is increasing.  It is the same in our house, garden and also in any business entity, simply everywhere. To keep things in order requires significant effort.
 
 The amount of effort grows with the complexity of the system to be ordered. Again, it is obvious that keeping fewer things in order requires less effort than keeping more things in order. 
-
-<img src="entropy.png" width="800px" alt="entropy"/>
 
 ### Information and Entropy
 Now lets put also information into the context of entropy. Complex and unordered things (high entropy systems) are difficult to understand, there is a high level of uncertainty about them. To lower the uncertainty, a lot of information is required to describe the complex system. The high entropy systems require a high amount of information.  So the information is another kind of effort or energy if you wish.
