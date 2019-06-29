@@ -11,7 +11,7 @@ theme = "cayman-hugo-theme"
 googleAnalytics = "UA-123456789-1"
 
 # Disqus comments
-disqusShortname = "yourdiscussshortname"
+disqusShortname = "dwh-academy-posts"
 
 # Syntax highlighting
 pygmentsCodefences = true
