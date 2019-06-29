@@ -1,6 +1,6 @@
 ---
 title: "Proven DWH Design"
-date: 2019-06-24
+date: 2019-06-29
 tags: [dwh, design]
 ---
 
