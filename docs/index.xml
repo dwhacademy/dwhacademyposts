@@ -32,23 +32,12 @@ When DWH accumulates unorganized data it tends to experience some kind of Turbo 
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://posts.dwhacademy.com/about/</link>
-      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
- https://github.</description>
-    </item>
-    
-    <item>
       <title></title>
       <link>https://posts.dwhacademy.com/authors/list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/authors/list/</guid>
-      <description>{{ .Params.name }} Bio {{ .Content }} {{ with .Params.twitter }}  Follow {{ $.Params.name }} on Twitter  {{ end }} Articles  {{ range .Data.Pages }} {{ .Title }} {{ end }} </description>
+      <description>{{ .Params.name }} Articles  {{ range .Data.Pages }} {{ .Title }} {{ end }} </description>
     </item>
     
     <item>
