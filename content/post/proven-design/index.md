@@ -18,6 +18,8 @@ The Stage Layer is the first database layer, where the data from the source file
 
 For further processing, it is necessary to know what kind of source files we have.  There are two main types of source file delivery.  The first one is full snapshot data, the second is incremental data. We are not going to dive into details here, but it is good practice to store the information about the type of source data delivery as another technical column in the Stage layer tables.
 
+<img src="design.png" width="800px" alt="design"/>
+
 ### Integrated Layer
 The Integrated Layer is the topic for a whole book, it is frequently a subject of endless discussions which are often raising a lot of emotions.  I will try to avoid that for now. The Goal of this layer is to Integrate data from multiple sources into one consolidated data model.   The priority is on the optimal data storage and long term maintenance, not on the user-friendly access to the data. The Integrated layer is the core of data warehousing.  It needs to be easily extensible, scalable and allowing to track the history of changes in data.  It is the only layer, where the full history of data in the full detail is available. 
 

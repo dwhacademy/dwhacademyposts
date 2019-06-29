@@ -17,6 +17,8 @@ Entropy is usually described as a measure of disorder in a closed system.  The c
 
 The amount of effort grows with the complexity of the system to be ordered. Again, it is obvious that keeping fewer things in order requires less effort than keeping more things in order. 
 
+<img src="entropy.png" width="800px" alt="entropy"/>
+
 ### Information and Entropy
 Now lets put also information into the context of entropy. Complex and unordered things (high entropy systems) are difficult to understand, there is a high level of uncertainty about them. To lower the uncertainty, a lot of information is required to describe the complex system. The high entropy systems require a high amount of information.  So the information is another kind of effort or energy if you wish.
 
