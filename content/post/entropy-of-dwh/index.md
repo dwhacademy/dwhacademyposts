@@ -1,5 +1,6 @@
 ---
 title: "Lubomir Kamensky: Entropy of the DWH systems"
+image: "entropy"
 date: 2019-06-28
 tags: [dwh, entrophy]
 authors:
