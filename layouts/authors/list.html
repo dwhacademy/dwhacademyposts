@@ -1,10 +1,19 @@
 {{ define "main" }}
 <h1>{{ .Params.name }}</h1>
-<h2>Articles</h2>
-<ul>
+<table>
 {{ range .Data.Pages }}
-    {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ .PublishDate.Format $dateFormat }})</li>
+  <tr>
+  	<td> 
+  		<a href="{{ .Permalink }}">
+  		<img src="/{{ .Params.image }}_iko.png" width="200px" alt="{{ .Params.image }}"/>
+  		</a>
+  	</td>
+  	<td style="vertical-align:top;">
+        {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
+        {{ .PublishDate.Format $dateFormat }}
+        <br/><a href="{{ .Permalink }}">{{ .Title }}</a>
+    </td>
+  </tr> 
 {{ end }}
-</ul>
+</table>
 {{ end }}

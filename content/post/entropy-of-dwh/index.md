@@ -3,8 +3,7 @@ title: "Entropy of the DWH systems"
 image: "entropy"
 date: 2019-06-28
 tags: [dwh, entrophy]
-authors:
-  - Lubomir Kamensky
+authors: [Lubomir Kamensky]
 ---
 This is the first post on DWH Academy, starting the series of practical tips on how to build a successful data warehouse. This introduction puts Data warehouse into a wide context of  physical science but in a simple friendly way
 
