@@ -1,9 +1,13 @@
 ---
-title: "Entropy of the DWH systems"
+title: "Lubomir Kamensky: Entropy of the DWH systems"
 date: 2019-06-28
 tags: [dwh, entrophy]
+authors:
+  - Lubomir Kamensky
 ---
 This is the first post on DWH Academy, starting the series of practical tips on how to build a successful data warehouse. This introduction puts Data warehouse into a wide context of  physical science but in a simple friendly way
+
+When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase.  The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.  To share advises how to gain the trust of the business users, how to build DWH in Agile, what are the proven design patterns in DWH and what are the core principles helping to avoid the experience of Turbo Effect in the entropy increase of your DWH.
 
 ### Arrow of time
 Increasing entropy defines the direction of time in our Universe. The Universe grows from simple to complex, from ordered to unordered.  Even though the entropy can decrease locally, the global increase of Universe's entropy is irreversible.  That's why entropy is called the arrow of time. It is the same for living and non-living things. Process of aging is driven by increasing entropy.
@@ -21,5 +25,3 @@ Now we are finally getting close to the subject of this article. The main goal o
 To be able to achieve such a goal, we need to build a Data warehouse which itself is sustainable.  Sustainable DWH is a big challenge.  DWH accumulates data (unorganized facts) with extremely high entropy, The goal of DWH is to organize them and transform into information. The cost of transformation is hight, but it pays back. While reusing the data is very expensive, reusing the information is for free.
 
 What I have learned from my long DWH career, is that there are only two reasons why DWH projects fail.  The first one is when DWH doesn't gain the trust of business users, the second is when the entropy of DWH grows so high, that there are not enough resources to maintain it. It can happen surprisingly quickly at the very beginning of the project but also any time later.
-
-When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase.  The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.  To share advises how to gain the trust of the business users, how to build DWH in Agile, what are the proven design patterns in DWH and what are the core principles helping to avoid the experience of Turbo Effect in the entropy increase of your DWH.

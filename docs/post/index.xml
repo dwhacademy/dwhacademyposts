@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Proven DWH Design</title>
+      <title>Lubomir Kamensky: Proven DWH Design</title>
       <link>https://posts.dwhacademy.com/proven-design/</link>
       <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -22,13 +22,13 @@ Landing Area Imagine the Landing Area as an address, where the files from the so
     </item>
     
     <item>
-      <title>Entropy of the DWH systems</title>
+      <title>Lubomir Kamensky: Entropy of the DWH systems</title>
       <link>https://posts.dwhacademy.com/entropy-of-dwh/</link>
       <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/entropy-of-dwh/</guid>
       <description>This is the first post on DWH Academy, starting the series of practical tips on how to build a successful data warehouse. This introduction puts Data warehouse into a wide context of physical science but in a simple friendly way
-Arrow of time Increasing entropy defines the direction of time in our Universe. The Universe grows from simple to complex, from ordered to unordered. Even though the entropy can decrease locally, the global increase of Universe&amp;rsquo;s entropy is irreversible.</description>
+When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase. The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.</description>
     </item>
     
   </channel>

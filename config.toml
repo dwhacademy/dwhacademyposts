@@ -18,6 +18,7 @@ pygmentsCodefences = true
 pygmentsStyle = "pygments"
 
 [taxonomies]
+  author = "authors"
   tag = "tags"
 
 [permalinks]
@@ -68,7 +69,11 @@ pygmentsStyle = "pygments"
     url = "/"
     weight = 1
   [[menu.nav]]
+    name = "Authors"
+    url = "/authors/"
+    weight = 2
+  [[menu.nav]]
     name = "DWH Academy"
     url = "https://dwhacademy.com"
-    weight = 2
+    weight = 3
 

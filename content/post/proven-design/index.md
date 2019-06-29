@@ -1,9 +1,10 @@
 ---
-title: "Proven DWH Design"
+title: "Lubomir Kamensky: Proven DWH Design"
 date: 2019-06-29
 tags: [dwh, design]
+authors:
+  - Lubomir Kamensky
 ---
-
 There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of the typical successful DWH in the long term.
 
 ### Landing Area

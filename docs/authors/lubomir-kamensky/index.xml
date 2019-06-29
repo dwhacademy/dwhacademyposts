@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on DWH Academy Posts</title>
-    <link>https://posts.dwhacademy.com/</link>
-    <description>Recent content in Blog on DWH Academy Posts</description>
+    <title>DWH Academy Posts</title>
+    <link>https://posts.dwhacademy.com/authors/lubomir-kamensky/</link>
+    <description>Recent content on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://posts.dwhacademy.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://posts.dwhacademy.com/authors/lubomir-kamensky/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -29,35 +29,6 @@ Landing Area Imagine the Landing Area as an address, where the files from the so
       <guid>https://posts.dwhacademy.com/entropy-of-dwh/</guid>
       <description>This is the first post on DWH Academy, starting the series of practical tips on how to build a successful data warehouse. This introduction puts Data warehouse into a wide context of physical science but in a simple friendly way
 When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase. The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://posts.dwhacademy.com/about/</link>
-      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
- https://github.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://posts.dwhacademy.com/authors/list/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/authors/list/</guid>
-      <description>{{ .Params.name }} Bio {{ .Content }} {{ with .Params.twitter }}  Follow {{ $.Params.name }} on Twitter  {{ end }} Articles  {{ range .Data.Pages }} {{ .Title }} {{ end }} </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://posts.dwhacademy.com/authors/terms/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/authors/terms/</guid>
-      <description>Authors  {{ range .Data.Pages }} {{ .Params.name }} {{ end }} </description>
     </item>
     
   </channel>
