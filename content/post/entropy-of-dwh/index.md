@@ -13,7 +13,7 @@ When DWH accumulates unorganized data it tends to experience some kind of Turbo 
 <img src="entropy.png" width="800px" alt="entropy"/>
 
 ### Arrow of time
-Increasing entropy defines the direction of time in our Universe. The Universe grows from simple to complex, from ordered to unordered.  Even though the entropy can decrease locally, the global increase of Universe's entropy is irreversible.  That's why entropy is called the arrow of time. It is the same for living and non-living things. Process of aging is driven by increasing entropy.
+Increasing entropy defines the direction of time in our Universe. The Universe grows from simple to complex, from ordered to unordered.  Even though the entropy can decrease locally, the total increase of Universe's entropy is irreversible.  That's why entropy is called the arrow of time. It is the same for living and non-living things. Process of aging is driven by increasing entropy.
 
 Entropy is usually described as a measure of disorder in a closed system.  The concept itself is in our world so obvious, that we don't even think about it. It is natural that without additional energy the disorder is increasing.  It is the same in our house, garden and also in any business entity, simply everywhere. To keep things in order requires significant effort.
 
