@@ -58,19 +58,4 @@
     <priority>0</priority>
   </url>
   
-  <url>
-    <loc>https://posts.dwhacademy.com/authors/list/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://posts.dwhacademy.com/authors/terms/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://posts.dwhacademy.com/authors/</loc>
-    <priority>0</priority>
-  </url>
-  
 </urlset>

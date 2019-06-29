@@ -31,23 +31,5 @@ Landing Area Imagine the Landing Area as an address, where the files from the so
 When DWH accumulates unorganized data it tends to experience some kind of Turbo Effect in the entropy increase. The main motivation to start the project DWH Academy was to share the patterns and tools which work to build a successful Data warehouse in the long term.</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://posts.dwhacademy.com/authors/list/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/authors/list/</guid>
-      <description>{{ .Params.name }} Articles  {{ range .Data.Pages }} {{ .Title }} {{ end }} </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://posts.dwhacademy.com/authors/terms/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/authors/terms/</guid>
-      <description>Authors  {{ range .Data.Pages }} {{ .Params.name }} {{ end }} </description>
-    </item>
-    
   </channel>
 </rss>
