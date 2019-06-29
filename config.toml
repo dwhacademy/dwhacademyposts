@@ -73,7 +73,7 @@ pygmentsStyle = "pygments"
     url = "/authors/"
     weight = 2
   [[menu.nav]]
-    name = "DWH Academy"
-    url = "https://dwhacademy.com"
+    name = "Tags"
+    url = "/tags/"
     weight = 3
 
