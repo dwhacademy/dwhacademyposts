@@ -6,10 +6,37 @@
     <description>Recent content in Tags on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>business</title>
+      <link>https://posts.dwhacademy.com/tags/business/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dwh</title>
+      <link>https://posts.dwhacademy.com/tags/dwh/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/dwh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>goal</title>
+      <link>https://posts.dwhacademy.com/tags/goal/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/goal/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>design</title>
@@ -17,15 +44,6 @@
       <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/tags/design/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dwh</title>
-      <link>https://posts.dwhacademy.com/tags/dwh/</link>
-      <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/dwh/</guid>
       <description></description>
     </item>
     

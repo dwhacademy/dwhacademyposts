@@ -1,6 +1,6 @@
 ---
 title: "Busines Orientation"
-image: "#"
+image: "business_orientation"
 date: 2019-07-01
 tags: [dwh, business, goal]
 authors: [Grzegorz Swierniak]

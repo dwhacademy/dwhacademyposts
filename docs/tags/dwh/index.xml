@@ -6,10 +6,20 @@
     <description>Recent content in dwh on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/dwh/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Busines Orientation</title>
+      <link>https://posts.dwhacademy.com/business-orientation/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/business-orientation/</guid>
+      <description>The real success of a data warehouse is defined by the number of users who use it on a daily basis, so do not forget to always put their needs in the first place.
+None of the data warehouse projects would ever exist if there were no business needs, it is hard to imagine an organization that would spend millions of dollars just to make their IT department happy and let them work on the latest and the best available software on the market.</description>
+    </item>
     
     <item>
       <title>Proven DWH Design</title>
