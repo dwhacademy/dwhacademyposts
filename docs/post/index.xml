@@ -17,7 +17,8 @@
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/agile/</guid>
-      <description>Over the last few years working in Agile became a very hot topic. Lots of big consulting companies (including big 4) realized that teaching and implementing the agile methodology in different companies can be a very lucrative source of income for them. They&amp;rsquo;ve been selling their ideas across different industries, departments, and projects but have ever seen a good implementation of such Agile methodology in any Data Warehouse? Probably not (otherwise you would probably not bother to read this article) because Agile methodology for DWH requires a dedicated approach.</description>
+      <description>Working in Agile became a hot topic. Big consulting companies (including big 4) realized that implementing agile methodology is a very lucrative business. But have you ever seen a good implementation of Agile methodology in Data Warehousing? Probably not, otherwise you would not bother to read this article. Agile methodology in DWH requires a very special approach.
+We plan to post a set of articles to describe our experience and practical tips on how to approach Agile in DWH, but let’s start with basic hints.</description>
     </item>
     
     <item>
