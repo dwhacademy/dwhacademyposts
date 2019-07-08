@@ -6,10 +6,19 @@
     <description>Recent content in Posts on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Agile in Data warehousing</title>
+      <link>https://posts.dwhacademy.com/agile/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/agile/</guid>
+      <description>Over the last few years working in Agile became a very hot topic. Lots of big consulting companies (including big 4) realized that teaching and implementing the agile methodology in different companies can be a very lucrative source of income for them. They&amp;rsquo;ve been selling their ideas across different industries, departments, and projects but have ever seen a good implementation of such Agile methodology in any Data Warehouse? Probably not (otherwise you would probably not bother to read this article) because Agile methodology for DWH requires a dedicated approach.</description>
+    </item>
     
     <item>
       <title>Business Orientation</title>
