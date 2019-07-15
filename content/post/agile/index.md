@@ -1,5 +1,7 @@
 ---
 title: "Agile in Data warehousing"
+project_tagline: "Agile in Data warehousing_t"
+project_name: "Agile in Data warehousing_n"
 image: "agile"
 date: 2019-07-08
 tags: [dwh, agile]
