@@ -64,21 +64,22 @@ pygmentsStyle = "pygments"
   hr_border_color = "#eff0f1"
 
 [menu]
+
   [[menu.nav]]
-    name = "Home"
-    url = "https://dwhacademy.com/"
-    weight = 1
-  [[menu.nav]]
-    name = "Latest"
+    name = "Latest Posts"
     url = "/"
-    weight = 2
+    weight = 1
   [[menu.nav]]
     name = "Authors"
     url = "/authors/"
-    weight = 3
+    weight = 2
   [[menu.nav]]
     name = "Tags"
     url = "/tags/"
+    weight = 3
+  [[menu.nav]]
+    name = "DWH Academy"
+    url = "https://dwhacademy.com/"
     weight = 4
 
 
