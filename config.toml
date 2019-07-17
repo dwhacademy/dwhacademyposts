@@ -65,15 +65,20 @@ pygmentsStyle = "pygments"
 
 [menu]
   [[menu.nav]]
+    name = "Home"
+    url = "https://dwhacademy.com/"
+    weight = 1
+  [[menu.nav]]
     name = "Latest"
     url = "/"
-    weight = 1
+    weight = 2
   [[menu.nav]]
     name = "Authors"
     url = "/authors/"
-    weight = 2
+    weight = 3
   [[menu.nav]]
     name = "Tags"
     url = "/tags/"
-    weight = 3
+    weight = 4
+
 
