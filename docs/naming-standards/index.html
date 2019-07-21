@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Naming Standards | DWH Academy Posts</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Naming Standards</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-07-21
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/grzegorz-swierniak/">Grzegorz Swierniak</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/design/">design</a>, <a href="https://posts.dwhacademy.com/tags/standards/">standards</a>, <a href="https://posts.dwhacademy.com/tags/names/">names</a>, <a href="https://posts.dwhacademy.com/tags/integrated-layer/">integrated layer</a>, <a href="https://posts.dwhacademy.com/tags/access-layer/">access layer</a>, <a href="https://posts.dwhacademy.com/tags/staging-layer/">staging layer</a>
+    </div>
+  
+  
+
+<p>The main goal of adopting a naming convention for database objects is so that you and others can easily identify the type and purpose of all objects contained in the database. I do not believe the same naming standards can be applied to all layers of the DWH (read more about Proven DWH Design here). Each layer serves a different purpose, so different users will be accessing them - let&rsquo;s use the standards that fit their needs. Despite that, there are certain aspects of naming conventions that are common for all objects, no matter where in the architecture of the DHW they reside.</p>
+
+<p><img src="names.png" width="800px" alt="names"/></p>
+
+<h3 id="common-standards">Common standards</h3>
+
+<ul>
+<li>Table and view names should always be in a singular form (PARTY instead of PARTIES).</li>
+<li>Multiple words in the object name separate with an underscore (“_”), for instance, HIER_TYPE but try to avoid all other special characters, such are: &lsquo;$&rsquo;, &lsquo;&amp;&lsquo;, &lsquo;#&rsquo;, &lsquo;@&rsquo;, etc.</li>
+<li>The next common rule refers to capital letters - use them consistently across all object names in your database (views, tables, columns, procedures, etc.).</li>
+<li>Prefixes are a very powerful technique to organize your list of tables, views or procedures, especially when you deal with mid- and large scale Data Warehouses.</li>
+</ul>
+
+<h3 id="staging-layer-naming-standards">Staging layer naming standards</h3>
+
+<p>The names here are straightforward since this layer consists of only tables (views) that represent raw data from source systems. The general pattern is to use a prefix with the source system name (can be abbreviated) plus the business meaning of data in that table, as follow:</p>
+
+<ul>
+<li><b>Source system prefix + Business name </b>(for instance: SAP_NEW_HIRES)</li>
+</ul>
+
+<p>Very often you can hear about the restriction where data from the staging layer cannot be accessed directly (from tables), but only through views that are built on top of that tables (restricted access might be applied on views). In such a case, we just need to add another prefix &lsquo;V_&rsquo; in front of the source table:</p>
+
+<ul>
+<li><b>V + Source system prefix + Business name </b>(for instance: V_SAP_NEW_HIRES)</li>
+</ul>
+
+<h3 id="integrated-layer-naming-standards">Integrated layer naming standards</h3>
+
+<p>Some of the rules you will find below might not adhere to general naming conventions you know from books. But I want to highlight the fact that the Integrated layer is purely technical layer and it should primarily be easily extensible, scalable and allowing to track the history of changes in data. Therefore end user-friendliness is far less important than its primary goals.</p>
+
+<p>Although I am not a huge fan of abbreviations, I need to admit that they are really necessary. Of course, you can start building your integrated layer using full names, but as the complexity of your DWH grows, sooner or later you will realize that you need to start using them. Thus I suggest starting to abbreviate the name of your objects from day 1.</p>
+
+<p>Another unpopular rule I would like to share is the table numbers. Each table that is part of your model in the Integrated layer should contain an internal number, that should be used as a prefix in the object names. Just to remind you, here we are discussing the Integrated layer, the core of the data warehousing, the model that very often has hundreds of tables, so not to organize them through numbers seems to be very reckless.</p>
+
+<p>Now let&rsquo;s go through different prefixes for tables and views you might use in your Integrated layer. The general pattern is:
+Prefix + Table number + Business name
+Prefixes for tables:</p>
+
+<ul>
+<li><b>M</b> - (m)ain target table - tables that contain full history, for example, M015_PARTY</li>
+<li><b>T</b> - (t)emporary table - 1:1 table with &rsquo;M&rsquo; table used for history handling, for example, T015_PARTY</li>
+<li><b>X</b> - configuration/metadata table -  tables that are maintained by business or development team and can configure how the final reports look like.</li>
+</ul>
+
+<p>Prefixes for views:</p>
+
+<ul>
+<li><b>X</b> - filters only active records from main (M) table, for example, V015_PARTY</li>
+<li><b>A</b> - (a)ccess view - views built on top of &lsquo;V&rsquo; views (active records) but additional logic to prioritize certain data sources (when there is an overlap) is applied, for example, A015_PARTY. These views represent final data that should be propagated to Access layer.</li>
+<li><b>W</b> - (w)orking view - views with business logic - the place where all transformations should be put in place, for example, W_015_PARTY_SAP - this view contains business logic from SAP source system that should be integrated into the M015_PARTY table.</li>
+</ul>
+
+<h3 id="access-and-datamart-layer-naming-standards">Access and Datamart layer naming standards</h3>
+
+<p>Unlike the Integrated layer, in Access layer we should avoid abbreviations because it is the layer where business users may access directly. The only acceptable abbreviation is DIM, stands for dimension. This abbreviation can be used together with FACT as the only common prefixes used here:</p>
+
+<ul>
+<li><b>DIM</b>, for example, DIM_LACATION.</li>
+<li><b>FACT</b>, for example, FACT_SALES.</li>
+</ul>
+
+<p>All access layers have to be built as star schema, so there is no need for any other prefixes. Sometimes, when you have multiple star schema models in your access layer, I suggest adding given subject area name after the DIM/FACT prefix to logically organize objects from the same area, for example, DIM_HR_REGION</p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
