@@ -26,7 +26,7 @@
       <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/proven-design/</guid>
-      <description>There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of the typical successful DWH in the long term.
+      <description>There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of one pattern which was proven to work.
 Landing Area Imagine the Landing Area as an address, where the files from the source systems arrive. It is the first interface of the DWH, usually some file system organized into directories for each source file.</description>
     </item>
     

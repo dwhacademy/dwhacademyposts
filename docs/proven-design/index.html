@@ -100,7 +100,7 @@
   
   
 
-<p>There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of the typical successful DWH in the long term.</p>
+<p>There is an unlimited number of ways how to build a data warehouse. Few of them work and some of the few can even survive in the long term. In this post, we are going to describe the high-level design of one pattern which was proven to work.</p>
 
 <p><img src="design.png" width="800px" alt="design"/></p>
 
@@ -118,7 +118,7 @@
 
 <h3 id="integrated-layer">Integrated Layer</h3>
 
-<p>The Integrated Layer is the topic for a whole book, it is frequently a subject of endless discussions which are often raising a lot of emotions.  I will try to avoid that for now. The Goal of this layer is to Integrate data from multiple sources into one consolidated data model.   The priority is on the optimal data storage and long term maintenance, not on the user-friendly access to the data. The Integrated layer is the core of data warehousing.  It needs to be easily extensible, scalable and allowing to track the history of changes in data.  It is the only layer, where the full history of data in the full detail is available.</p>
+<p>The Integrated Layer is the topic for a whole book, it is frequently a subject of endless discussions which are often raising a lot of emotions.  I will try to avoid that for now. The goal of this layer is to integrate data from multiple sources into one consolidated data model.   The priority is on the optimal data storage and long term maintenance, not on the user-friendly access to the data. The Integrated layer is the core of data warehousing.  It needs to be easily extensible, scalable and allowing to track the history of changes in data.  It is the only layer, where the full history of data in the full detail is available.</p>
 
 <p>The data model of Integrated layer is a normalized relational model in third normal form.  A good practice is to use some level of abstraction creating common entities which can be used to store a wide range of data.  A useful pattern is subtyping. That&rsquo;s a good topic for another article but now I want to make a few other notes.  To be able to store data in the Integrated layer you need a very good understanding of your data. If that is not the case, then there is no way how to load them into an Integrated layer and not to make it just useless expensive garbage.</p>
 
@@ -132,7 +132,7 @@
 
 <h3 id="data-marts">Data marts</h3>
 
-<p>Data marts are usually called independent, they can source data from any other layer and even manual inputs of data are acceptable.  Data marts are a perfect tool for prototyping. As I already mentioned when talking about the Integrated layer, there are scenarios when we have data which we don&rsquo;t fully understand. We have some assumptions and theories but to prove them, we need to run a series of experiments. Integrated layer is too expensive for such experiments, we need some data labs.  Of course, Data lab is just one of many roles which Data mart can play.  Data marts can be built also on top of the Integrated or even Access layer.</p>
+<p>Data marts are usually called independent, they can source data from any other layer and even manual inputs of data are acceptable.  Data marts are a perfect tool for prototyping. As I already mentioned when talking about the Integrated layer, there are scenarios when we have data which we don&rsquo;t fully understand. We have some assumptions and theories but to prove them, we need to run a series of experiments. The Integrated layer is too expensive for such experiments, we need some data labs.  Of course, Data lab is just one of many roles which Data mart can play.  Data marts can be built also on top of the Integrated or even Access layer.</p>
 
 <p>Anytime the expected output of some BI project is too specific, experimental or just unpredictable to be shared across the enterprise, then it is the time to consider Datamart as an option.  In fact, there are no strict rules how to build data marts.  Their goal is to find a minimalistic, pragmatic way how to deliver the results.</p>
 
