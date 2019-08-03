@@ -20,6 +20,7 @@ pygmentsStyle = "pygments"
 [taxonomies]
   author = "authors"
   tag = "tags"
+  category = "categories"
 
 [permalinks]
   post = "/:filename/"
@@ -70,16 +71,20 @@ pygmentsStyle = "pygments"
     url = "/"
     weight = 1
   [[menu.nav]]
-    name = "Authors"
-    url = "/authors/"
+    name = "Main topics"
+    url = "/categories/"
     weight = 2
   [[menu.nav]]
     name = "Tags"
     url = "/tags/"
     weight = 3
   [[menu.nav]]
+    name = "Authors"
+    url = "/authors/"
+    weight = 4
+  [[menu.nav]]
     name = "DWH Academy"
     url = "https://dwhacademy.com/"
-    weight = 4
+    weight = 5
 
 

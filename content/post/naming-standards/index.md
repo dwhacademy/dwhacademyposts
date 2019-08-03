@@ -3,6 +3,7 @@ title: "Naming Standards"
 image: "names"
 date: 2019-07-21
 tags: [dwh, design, standards, names, integrated layer, access layer, staging layer]
+categories: ["Data modeling"]
 authors: [Grzegorz Swierniak]
 ---
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data modeling on DWH Academy Posts</title>
+    <link>https://posts.dwhacademy.com/categories/data-modeling/</link>
+    <description>Recent content in Data modeling on DWH Academy Posts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://posts.dwhacademy.com/categories/data-modeling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Naming Standards</title>
+      <link>https://posts.dwhacademy.com/naming-standards/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/naming-standards/</guid>
+      <description>The main goal of adopting a naming convention for database objects is so that you and others can easily identify the type and purpose of all objects contained in the database. In this article, I want to describe one of the possible ways of adopting naming standards, undoubtedly there are other standards that also work but my goal is to show you the ones I applied and they proved to be working very well.</description>
+    </item>
+    
+  </channel>
+</rss>
