@@ -1,12 +1,14 @@
 ---
 title: "How to keep the DWH entropy increase sustainable"
-image: "design"
+image: "entropy_under_control"
 date: 2019-08-05
 tags: [dwh, design]
 authors: [Lubomir Kamensky]
 ---
 
 We were talking about why to care about the Entropy of the DWH in the prior post [Entropy of the DWH systems](https://posts.dwhacademy.com/entropy-of-dwh/). Let's talk now about the ways how to keep the DWH entropy increase sustainable.  We can never change the fact that the complexity of our DWH is going to grow over time. But we are fully responsible for the initial complexity of our solution and for creating the environment which can avoid rapid entropy increase in a short time.
+
+<img src="entropy_under_control.png" width="800px" alt="entropy_under_control"/>
 
 ### DWH as a Universe
 Well, we can never manage to start with Initial singularity, the state where all the mass of the Universe has been compressed into the infinitely dense center point.  But it is crucial to start with a very good understanding of the data which we are going to load into our DWH. Lack of information about the processed data is the main reason for the unnecessary complexity of the DWH solution.  This is the main rule for the long life of any solution, to make it simple in the beginning.  Simplicity always comes from a perfect understanding.
