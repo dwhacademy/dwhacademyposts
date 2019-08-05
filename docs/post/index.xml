@@ -6,10 +6,19 @@
     <description>Recent content in Posts on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to keep the DWH entropy increase sustainable</title>
+      <link>https://posts.dwhacademy.com/sustainable-entropy-increase/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/sustainable-entropy-increase/</guid>
+      <description>We were talking about why to care about the Entropy of the DWH in the prior post Entropy of the DWH systems. Let&amp;rsquo;s talk now about the ways how to keep the DWH entropy increase sustainable. We can never change the fact that the complexity of our DWH is going to grow over time. But we are fully responsible for the initial complexity of our solution and for creating the environment which can avoid rapid entropy increase in a short time.</description>
+    </item>
     
     <item>
       <title>Naming Standards</title>

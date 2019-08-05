@@ -1,7 +1,7 @@
 ---
 title: "How to keep the DWH entropy increase sustainable"
 image: "design"
-date: 2019-08-14
+date: 2019-08-05
 tags: [dwh, design]
 authors: [Lubomir Kamensky]
 ---

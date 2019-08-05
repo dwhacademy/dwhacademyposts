@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>How to keep the DWH entropy increase sustainable | DWH Academy Posts</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>How to keep the DWH entropy increase sustainable</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-08-05
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/lubomir-kamensky/">Lubomir Kamensky</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/design/">design</a>
+    </div>
+  
+  
+
+<p>We were talking about why to care about the Entropy of the DWH in the prior post <a href="https://posts.dwhacademy.com/entropy-of-dwh/">Entropy of the DWH systems</a>. Let&rsquo;s talk now about the ways how to keep the DWH entropy increase sustainable.  We can never change the fact that the complexity of our DWH is going to grow over time. But we are fully responsible for the initial complexity of our solution and for creating the environment which can avoid rapid entropy increase in a short time.</p>
+
+<h3 id="dwh-as-a-universe">DWH as a Universe</h3>
+
+<p>Well, we can never manage to start with Initial singularity, the state where all the mass of the Universe has been compressed into the infinitely dense center point.  But it is crucial to start with a very good understanding of the data which we are going to load into our DWH. Lack of information about the processed data is the main reason for the unnecessary complexity of the DWH solution.  This is the main rule for the long life of any solution, to make it simple in the beginning.  Simplicity always comes from a perfect understanding.</p>
+
+<p>Start with good architecture, see the post <a href="https://posts.dwhacademy.com/proven-design/">Proven DWH Design</a>.  An important rule to mention here is to keep data with high uncertainty in isolated data labs and never propagate them into integrated layer before gaining the necessary understanding.</p>
+
+<p>Good understanding of data in the heads of your analysts and developers is better than nothing, but the best is to document and share the knowledge to the whole DWH team in well-organized Business definitions.</p>
+
+<h3 id="how-to-be-in-control">How to be in control</h3>
+
+<p>Creating a controlled development environment is the only way how to keep entropy increase of the DWH manageable in the long term.  Everything starts with good versioning tool like GIT, extended by collaboration interface like Bitbucket integrated into other agile development tools like JIRA and Confluence.  To goal is to have the code under the control and to enforce the end-to-end transparency of the development process as the default setup.</p>
+
+<p>Code under control cannot be achieved only by a good code repository. Essential is already the way how the code is created. I personally prefer good text editor like Sublime Text where you are really in the control of the code creation not like with graphical GUI tools where the code is generated.   Any GUI tool comes with some constraints and you can never avoid situations where instead of focusing on your goals you have to think about how to go around the constraints of the GUI tool. You can never keep the code as simple as possible without having full control over its creation.</p>
+
+<h3 id="the-power-of-automation">The power of automation</h3>
+
+<p>We, humans, are creative beings. The creativity is our advantage, the motor of the progress.  And progress cannot be stopped. But we need to control even the progress in the software development. It is definitely not a good development practice to use several different ways how to achieve the same thing. We need to define the patterns based on our best knowledge available at some point in time and consistently use just one pattern for doing one thing. To enforce this rule, limiting the space for human creativity, we use automation for all routine tasks. Automation is necessary to avoid an uncontrolled entropy increase in our DWH.  The perfect tool for automation is the Jenkins server.  We are going to talk about Jenkins jobs in some next post.</p>
+
+<h3 id="the-main-coding-rules">The main coding rules</h3>
+
+<p>Best solution is the simplest possible solution.  Never add any functionality before it is really required.  Do not try to predict the future.  Setup the coding standards which the development team can agree on. Define your naming conventions, see the post <a href="https://posts.dwhacademy.com/naming-standards/">Naming standards</a>.  Do not copy the same parts of the code to other places, encapsulate the shared logic in a library of common views.  Keep the code simple and clear. Prefer more descriptive code, even when it is longer than the shorter code which is hard to understand. Perform regularly the refactoring of the whole solution. When the solution grows, new patterns put the old patterns into a different context, some parts become too complex, sometimes redundant. It&rsquo;s is necessary to restructure the code to keep it in good shape regularly.</p>
+
+<h3 id="the-magic-formula-for-the-long-life-of-dwh">The magic formula for the long life of DWH</h3>
+
+<p>As I already mentioned in the first post <a href="https://posts.dwhacademy.com/entropy-of-dwh/">Entropy of the DWH systems</a>, the process of aging is driven by increasing entropy.  This post is covering a few essential rules on how to setup a controlled development environment helping us to keep the DWH entropy increase sustainable, but the sad truth is there is no guarantee it&rsquo;s gonna be enough.  The strongest ally of the entropy increase is a lack of information.  Our goal is to share all we know about building DWH, coming from general topics to practical examples. We identified the following areas to focus on in our posts: <a href="https://posts.dwhacademy.com/categories/">Main Topics</a>. If you think there is some gap, please share your thoughts in the discussion below.</p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
