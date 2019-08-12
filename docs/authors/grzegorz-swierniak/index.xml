@@ -6,10 +6,19 @@
     <description>Recent content in Grzegorz Swierniak on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/authors/grzegorz-swierniak/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hierarchies in 3NF model</title>
+      <link>https://posts.dwhacademy.com/hierarchies/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/hierarchies/</guid>
+      <description>In today&amp;rsquo;s article, I want to show you how to store n- number of hierarchies with n- number of levels using just 4 tables. The 4 tables will represent 3rd normal form (3NF) of our new integrated model. The scripts below you can apply in your own model and see how powerful this technique is, I&amp;rsquo;ve been using it for some time and the actual implementation does not vary that much whatever hierarchy you have, trust me!</description>
+    </item>
     
     <item>
       <title>Naming Standards</title>

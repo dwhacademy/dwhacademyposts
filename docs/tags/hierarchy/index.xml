@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>access layer on DWH Academy Posts</title>
-    <link>https://posts.dwhacademy.com/tags/access-layer/</link>
-    <description>Recent content in access layer on DWH Academy Posts</description>
+    <title>hierarchy on DWH Academy Posts</title>
+    <link>https://posts.dwhacademy.com/tags/hierarchy/</link>
+    <description>Recent content in hierarchy on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://posts.dwhacademy.com/tags/access-layer/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://posts.dwhacademy.com/tags/hierarchy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://posts.dwhacademy.com/hierarchies/</guid>
       <description>In today&amp;rsquo;s article, I want to show you how to store n- number of hierarchies with n- number of levels using just 4 tables. The 4 tables will represent 3rd normal form (3NF) of our new integrated model. The scripts below you can apply in your own model and see how powerful this technique is, I&amp;rsquo;ve been using it for some time and the actual implementation does not vary that much whatever hierarchy you have, trust me!</description>
-    </item>
-    
-    <item>
-      <title>Naming Standards</title>
-      <link>https://posts.dwhacademy.com/naming-standards/</link>
-      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/naming-standards/</guid>
-      <description>The main goal of adopting a naming convention for database objects is so that you and others can easily identify the type and purpose of all objects contained in the database. In this article, I want to describe one of the possible ways of adopting naming standards, undoubtedly there are other standards that also work but my goal is to show you the ones I applied and they proved to be working very well.</description>
     </item>
     
   </channel>
