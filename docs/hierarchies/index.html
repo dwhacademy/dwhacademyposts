@@ -146,7 +146,7 @@
 
 <h3 id="source-file">Source file</h3>
 
-<p>Let&rsquo;s start with the source file - the hierarchy that we will be trying to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like &lsquo;Balls&rsquo; - only 4 levels.</p>
+<p>Let&rsquo;s start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like &lsquo;Balls&rsquo; - only 4 levels.</p>
 
 <script src="https://gist.github.com/swiernia/494e80fb9e2df558afa6f08982815122.js"></script>
 
@@ -158,7 +158,7 @@
 
 <p><img src="hierarchies.png" width="800px" alt="names"/></p>
 
-<p>Feel free to can copy the model, just clone my project: <a href="https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy">Demo_il model in genmymodel.com</a></p>
+<p>Feel free to copy the model, just clone my project: <a href="https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy">Demo_il model in genmymodel.com</a></p>
 
 <p>Let me quickly give you an overview of the tables that we have:</p>
 
@@ -208,7 +208,7 @@
 <li><b>row_number() over(order by hier_item_src_key) + coalesce(max(hier_item_id),1000000)</b></li>
 </ul>
 
-<p>I encourage you to use this formula because it gives you full control over the surrogate key generation and can be built in most RDMS I am aware of (Teradata, postgresql, Oracle, etc.).</p>
+<p>I encourage you to use this formula because it gives you full control over the surrogate key generation and can be built in most RDMS I am aware of (Teradata, PostgreSQL, Oracle, etc.).</p>
 
 <script src="https://gist.github.com/swiernia/1d6beeb6841ac20c5fbf4b8ed8d1c719.js"></script>
 
@@ -229,9 +229,9 @@
 
 <h3 id="views-on-the-top-of-the-integrated-layer-tables">Views on the top of the Integrated Layer tables</h3>
 
-<p><b>Recursive view as a universal objects to store all hierarchies</b></p>
+<p><b>Recursive view as a universal object to store all hierarchies</b></p>
 
-<p>Once the tables in our integrated model had been loaded, we have fully normalized our hierarchy. Of course, the data can&rsquo;t be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.</p>
+<p>Once the tables in our integrated model had been loaded, we have fully normalized hierarchy. Of course, the data can&rsquo;t be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.</p>
 
 <script src="https://gist.github.com/swiernia/459ba4b1a6d2265dfc767d319068abb8.js"></script>
 

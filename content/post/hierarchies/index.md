@@ -23,7 +23,7 @@ After reading this article <b>you will not learn</b>:
 
 
 ### Source file
-Let's start with the source file - the hierarchy that we will be trying to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like 'Balls' - only 4 levels.
+Let's start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like 'Balls' - only 4 levels.
 
 <script src="https://gist.github.com/swiernia/494e80fb9e2df558afa6f08982815122.js"></script>
 
@@ -34,7 +34,7 @@ It is the time to design the model in 3rd normal form - the model you see below 
 
 <img src="hierarchies.png" width="800px" alt="names"/>
 
-Feel free to can copy the model, just clone my project: [Demo_il model in genmymodel.com](https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy)
+Feel free to copy the model, just clone my project: [Demo_il model in genmymodel.com](https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy)
 
 Let me quickly give you an overview of the tables that we have:
 
@@ -78,7 +78,7 @@ It is time to start loading our tables in the integrated layer. At first, we hav
 
 - <b>row_number() over(order by hier_item_src_key) + coalesce(max(hier_item_id),1000000)</b>
 
-I encourage you to use this formula because it gives you full control over the surrogate key generation and can be built in most RDMS I am aware of (Teradata, postgresql, Oracle, etc.).
+I encourage you to use this formula because it gives you full control over the surrogate key generation and can be built in most RDMS I am aware of (Teradata, PostgreSQL, Oracle, etc.).
 
 <script src="https://gist.github.com/swiernia/1d6beeb6841ac20c5fbf4b8ed8d1c719.js"></script>
 
@@ -100,9 +100,9 @@ Another crucial table to load is m003_hier_item_rltd which defines parent node a
 
 ### Views on the top of the Integrated Layer tables
 
-<b>Recursive view as a universal objects to store all hierarchies</b>
+<b>Recursive view as a universal object to store all hierarchies</b>
 
-Once the tables in our integrated model had been loaded, we have fully normalized our hierarchy. Of course, the data can't be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.
+Once the tables in our integrated model had been loaded, we have fully normalized hierarchy. Of course, the data can't be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.
 
 <script src="https://gist.github.com/swiernia/459ba4b1a6d2265dfc767d319068abb8.js"></script>
 
