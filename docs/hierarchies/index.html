@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>Hierarchies in 3NF model | DWH Academy Posts</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>Hierarchies in 3NF model</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-08-12
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/grzegorz-swierniak/">Grzegorz Swierniak</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/design/">design</a>, <a href="https://posts.dwhacademy.com/tags/3nf/">3nf</a>, <a href="https://posts.dwhacademy.com/tags/hierarchy/">hierarchy</a>, <a href="https://posts.dwhacademy.com/tags/integrated-layer/">integrated layer</a>, <a href="https://posts.dwhacademy.com/tags/access-layer/">access layer</a>, <a href="https://posts.dwhacademy.com/tags/surrogate-key/">surrogate key</a>
+    </div>
+  
+  
+
+<p>In today&rsquo;s article, I want to show you how to store n- number of hierarchies with n- number of levels using just 4 tables. The 4 tables will represent 3rd normal form (3NF) of our new integrated model. The scripts below you can apply in your own model and see how powerful this technique is, I&rsquo;ve been using it for some time and the actual implementation does not vary that much whatever hierarchy you have, trust me!</p>
+
+<p>After reading this article <b>you will learn</b>:</p>
+
+<ul>
+<li><p>how to build a universal model to store hierarchies</p></li>
+
+<li><p>how to generate surrogate keys</p></li>
+
+<li><p>how to normalize data</p></li>
+</ul>
+
+<p>After reading this article <b>you will not learn</b>:</p>
+
+<ul>
+<li>how to historize target tables (topic for another long article)</li>
+</ul>
+
+<table>
+   <tr>
+      <td>
+         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off. 
+         But all functional scripts can be found in the GitHub repository, 
+         so feel free to download them and test if on your own. Link to the the dwhacademy/demoporject repository can be found at the end of the article.
+      </td>
+      <td>
+         <img src="repo.PNG" width="700px" alt="repo"/>
+      </td>
+   </tr>
+</table>
+
+<h3 id="source-file">Source file</h3>
+
+<p>Let&rsquo;s start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like &lsquo;Balls&rsquo; - only 4 levels.</p>
+
+<script src="https://gist.github.com/swiernia/494e80fb9e2df558afa6f08982815122.js"></script>
+
+<p>In a source system (ERP) the table is named as &lsquo;product_tree_unq&rsquo; and for education purposes, we will keep the same in our stage layer (demo_sl). Additionally, every node in the hierarchy has its own unique identifier called &lsquo;node_id&rsquo;, which is used to specify what products fall under a given node (we will come back to that field in the next article).</p>
+
+<h3 id="create-your-model">Create your model</h3>
+
+<p>It is the time to design the model in 3rd normal form - the model you see below can fit any hierarchy with any number of levels, so next time you will be moving a hierarchy to your data warehouse, take the model as is, don&rsquo;t waste your time trying to reinvent the wheel.</p>
+
+<p><img src="hierarchies.png" width="800px" alt="hierarchies"/></p>
+
+<p>Feel free to copy the model, just clone my project: <a href="https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy">Demo_il model in genmymodel.com</a></p>
+
+<p>Let me quickly give you an overview of the tables that we have:</p>
+
+<ul>
+<li><p><b>k001_hier_item_key</b> - key table to uniquely define each hierarchy item (node) - the table where we store natural keys</p></li>
+
+<li><p><b>m001_hier_item</b> - main target table for hierarchy items (nodes)</p></li>
+
+<li><p><b>m002_hier</b> - the reference data - specify different hierarchy types</p></li>
+
+<li><p><b>m003_hier_item_rltd</b> - the relation table that stores parent-child relationships between hierarchy items (nodes)</p></li>
+</ul>
+
+<script src="https://gist.github.com/swiernia/c8d294c58d6d0e31d67866eac8aef1f5.js"></script>
+
+<h3 id="design-the-transformation-logic">Design the transformation logic</h3>
+
+<p><b>Load reference data</b></p>
+
+<p>Before we actually get to designing the transformation logic for our target tables, we need to load our reference data - in our case, we have only one hierarchy, so we just need to insert one record with hierarchy name into m002_hier table. I named our hierarchy as &lsquo;Product_Group&rsquo;, in fact, it can by any other name you wish but please make sure it has a proper business meaning.</p>
+
+<script src="https://gist.github.com/swiernia/aeac454d680f25c44f139fd293c8c499.js"></script>
+
+<p><b>The transformation logic</b></p>
+
+<p>The transformation logic is wrapped in a view that will be used to update key table (k001_hier_item_key) and the main target table (m001_hier_item), therefore in the view, we should combine all columns from both tables. Here are a few key facts about the logic:</p>
+
+<ul>
+<li><p>number of unions is equivalent to the number of levels in the hierarchy,</p></li>
+
+<li><p>the natural key for hier_item is a concatenation of a node from given level and all its all upstream nodes,</p></li>
+
+<li><p>we have to &lsquo;left join&rsquo; the key table, in case a given node does not exist  in the key table then a new surrogate key will be generated,</p></li>
+
+<li><p>the join to m002_hier table is mandatory, it specifies what hierarchy we are normalizing.</p></li>
+</ul>
+
+<script src="https://gist.github.com/swiernia/6a8d011d436c658b0944471e81e075e2.js"></script>
+
+<h3 id="load-your-model">Load your model</h3>
+
+<p><b>Generate surrogate keys</b></p>
+
+<p>It is time to start loading our tables in the integrated layer. At first, we have to make sure, all our hierarchy items (nodes) have their own surrogate keys, in order to do that - we update the key table at the beginning. In the script below you can find the common formula for surrogate key generation:</p>
+
+<ul>
+<li><b>row_number() over(order by hier_item_src_key) + coalesce(max(hier_item_id),1000000)</b></li>
+</ul>
+
+<p>I encourage you to use this formula because it gives you full control over the surrogate key generation and can be built in most RDMS I am aware of (Teradata, PostgreSQL, Oracle, etc.).</p>
+
+<script src="https://gist.github.com/swiernia/1d6beeb6841ac20c5fbf4b8ed8d1c719.js"></script>
+
+<p><b>Load target table</b></p>
+
+<p>Having all surrogate keys in place, we can easily insert data to our main target table - m001_hier_item. As I pointed out, this article is not meant to teach you how to properly historize tables in the integrated model, therefore to keep the simplicity of this lesson, I use SCD type 1 in my procedures, meaning I delete the target table completely before inserting new records.</p>
+
+<script src="https://gist.github.com/swiernia/c977c67fa0fd05d2e80b19a7bf34009b.js"></script>
+
+<p><b>Results</b>:
+<script src="https://gist.github.com/swiernia/6574170ef4836c533ea62c8e5203f6fd.js"></script></p>
+
+<p><b>Load relationship table</b></p>
+
+<p>Another crucial table to load is m003_hier_item_rltd which defines parent node and child node relationship - as a general rule, each parent can have multiple children and each child can have only one parent. Simple joins to the key table should easily specify the relations between nodes.</p>
+
+<script src="https://gist.github.com/swiernia/d535f023df78646b3d05659455135df2.js"></script>
+
+<h3 id="views-on-the-top-of-the-integrated-layer-tables">Views on the top of the Integrated Layer tables</h3>
+
+<p><b>Recursive view as a universal object to store all hierarchies</b></p>
+
+<p>Once the tables in our integrated model had been loaded, we have fully normalized hierarchy. Of course, the data can&rsquo;t be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.</p>
+
+<script src="https://gist.github.com/swiernia/459ba4b1a6d2265dfc767d319068abb8.js"></script>
+
+<p><b>Hierarchy - final obejct for Access Layer</b></p>
+
+<p>The second and the last step in denormalization exercise is to pivot the data from the recursive view. I named the new view as dim_product_tree_hier and placed it in the Access layer (demo_al) because it is the proper layer to create such denormalize tables(views). The view is designed in such a way that surrogate keys are placed next to the original node names, so every node (hier_item) can be joined a specific product.</p>
+
+<script src="https://gist.github.com/swiernia/97b5c0ef81f2c0ba367d9c0b5f9d1830.js"></script>
+
+<h3 id="summary">Summary</h3>
+
+<p>I hope that you found this article interesting, in the next article I will try to show you how to associate individual products with the hierarchy that we have built.</p>
+
+<p>All the scripts presented in this article can be found also on <a href="https://github.com/dwhacademy/demoproject.git">GitHub</a>, feel free to use them and try to improve!</p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
