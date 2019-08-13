@@ -144,6 +144,19 @@
 <li>how to historize target tables (topic for another long article)</li>
 </ul>
 
+<table>
+   <tr>
+      <td>
+         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off. 
+         But all functional scripts can be found in the GitHub repository, 
+         so feel free to download them and test if on your own. Link to the the dwhacademy/demoporject repository can be found at the end of the article.
+      </td>
+      <td>
+         <img src="repo.png" width="700px" alt="repo"/>
+      </td>
+   </tr>
+</table>
+
 <h3 id="source-file">Source file</h3>
 
 <p>Let&rsquo;s start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like &lsquo;Balls&rsquo; - only 4 levels.</p>
@@ -156,7 +169,7 @@
 
 <p>It is the time to design the model in 3rd normal form - the model you see below can fit any hierarchy with any number of levels, so next time you will be moving a hierarchy to your data warehouse, take the model as is, don&rsquo;t waste your time trying to reinvent the wheel.</p>
 
-<p><img src="hierarchies.png" width="800px" alt="names"/></p>
+<p><img src="hierarchies.png" width="800px" alt="hierarchies"/></p>
 
 <p>Feel free to copy the model, just clone my project: <a href="https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy">Demo_il model in genmymodel.com</a></p>
 

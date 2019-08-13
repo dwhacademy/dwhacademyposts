@@ -5,6 +5,7 @@ date: 2019-08-12
 tags: [dwh, design, 3nf, hierarchy, integrated layer, access layer, surrogate key]
 categories: ["Data modeling"]
 authors: [Grzegorz Swierniak]
+
 ---
 
 In today's article, I want to show you how to store n- number of hierarchies with n- number of levels using just 4 tables. The 4 tables will represent 3rd normal form (3NF) of our new integrated model. The scripts below you can apply in your own model and see how powerful this technique is, I've been using it for some time and the actual implementation does not vary that much whatever hierarchy you have, trust me!
@@ -21,6 +22,19 @@ After reading this article <b>you will not learn</b>:
 
 - how to historize target tables (topic for another long article)
 
+<table>
+   <tr>
+      <td>
+         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off. 
+         But all functional scripts can be found in the GitHub repository, 
+         so feel free to download them and test if on your own. Link to the the dwhacademy/demoporject repository can be found at the end of the article.
+      </td>
+      <td>
+         <img src="repo.png" width="700px" alt="repo"/>
+      </td>
+   </tr>
+</table>
+
 
 ### Source file
 Let's start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like 'Balls' - only 4 levels.
@@ -32,7 +46,7 @@ In a source system (ERP) the table is named as 'product_tree_unq' and for educat
 ### Create your model
 It is the time to design the model in 3rd normal form - the model you see below can fit any hierarchy with any number of levels, so next time you will be moving a hierarchy to your data warehouse, take the model as is, don't waste your time trying to reinvent the wheel.
 
-<img src="hierarchies.png" width="800px" alt="names"/>
+<img src="hierarchies.png" width="800px" alt="hierarchies"/>
 
 Feel free to copy the model, just clone my project: [Demo_il model in genmymodel.com](https://repository.genmymodel.com/g.swierniak.hcs/DWH-Academy)
 
