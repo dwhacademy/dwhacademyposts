@@ -25,9 +25,10 @@ After reading this article <b>you will not learn</b>:
 <table>
    <tr>
       <td>
-         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off. 
-         But all functional scripts can be found in the GitHub repository, 
-         so feel free to download them and test if on your own. Link to the the dwhacademy/demoporject repository can be found at the end of the article.
+        <b>Important note</b>
+         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off.
+         But all functional scripts can be found in the GitHub repository,
+         so feel free to download them and test if on your own. Link to the the dwhacademy/demoproject repository can be found at the end of the article.
       </td>
       <td>
          <img src="repo.png" width="700px" alt="repo"/>
