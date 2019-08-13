@@ -22,21 +22,6 @@ After reading this article <b>you will not learn</b>:
 
 - how to historize target tables (topic for another long article)
 
-<table>
-   <tr>
-      <td>
-        <b>Important note</b>
-         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off.
-         But all functional scripts can be found in the GitHub repository,
-         so feel free to download them and test if on your own. Link to the the dwhacademy/demoproject repository can be found at the end of the article.
-      </td>
-      <td>
-         <img src="repo.png" width="700px" alt="repo"/>
-      </td>
-   </tr>
-</table>
-
-
 ### Source file
 Let's start with the source file - the hierarchy that we are going to normalize and store in our data warehouse. The hierarchy represents the group of products in a sports store with up to 9 levels, up to 9 levels means that some group of products can have fewer levels, like 'Balls' - only 4 levels.
 
@@ -62,6 +47,20 @@ Let me quickly give you an overview of the tables that we have:
 - <b>m003_hier_item_rltd</b> - the relation table that stores parent-child relationships between hierarchy items (nodes)
 
 <script src="https://gist.github.com/swiernia/c8d294c58d6d0e31d67866eac8aef1f5.js"></script>
+
+<table>
+   <tr>
+      <td>
+          <b>Important note</b>
+         In order to keep the article clear enough, some scripts were shortened, normally the pattern is presented in the first 2 and the last UNION and the rest of UNIONs were cut off.
+         But all functional scripts can be found in the GitHub repository,
+         so feel free to download them and test if on your own. Link to the the dwhacademy/demoproject repository can be found at the end of the article.
+      </td>
+      <td>
+         <img src="repo.png" width="700px" alt="repo"/>
+      </td>
+   </tr>
+</table>
 
 ### Design the transformation logic
 
