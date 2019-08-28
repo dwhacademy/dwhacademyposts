@@ -237,19 +237,19 @@
 
 <p><b>Recursive view as a universal object to store all hierarchies</b></p>
 
-<p>Once the tables in our integrated model had been loaded, we have fully normalized hierarchy. Of course, the data can&rsquo;t be easily accessed yet, therefore we should aim to denormalize the data and put it in the nice hierarchical form. The first step to achieve that is to create a recursive view that will associate parent-child relationships with level of hierarchies they belong to.</p>
+<p>Once the tables in our integrated model had been loaded, we can modify the recursive view we created in the previous article. Just to remind, the recursive view aims to prepare data for denormalization in the Access Layer through combining each underlying object (product or hierarchy item) with its all upstream levels of hierarchy. The recursive view contains two unions: in the first union, we need to define the lowest level of the hierarchy (product level in our case) together with its direct parent hierarchy item. In the second union, we build all the upstream levels up to the top.</p>
 
 <script src="https://gist.github.com/swiernia/6a567c401e7661dafb9132c5a55a08d9.js"></script>
 
 <p><b>Hierarchy - final obejct for Access Layer</b></p>
 
-<p>The second and the last step in denormalization exercise is to pivot the data from the recursive view. I named the new view as dim_product_tree_hier and placed it in the Access layer (demo_al) because it is the proper layer to create such denormalize tables(views). The view is designed in such a way that surrogate keys are placed next to the original node names, so every node (hier_item) can be joined a specific product.</p>
+<p>The second and the last step in denormalization exercise is to pivot the data from the recursive view. I named the new view as dim_product_tree_hier and placed it in the Access layer (demo_al) because it is the proper layer to create such denormalize tables(views). The modification I applied here is that I added prod_id and prod_nm to the pivoting PK, so now we can see all products and what hierarchy node they fall under.</p>
 
 <script src="https://gist.github.com/swiernia/c8e1f2ef45de89759ed3d3cf31880e56.js"></script>
 
 <h3 id="summary">Summary</h3>
 
-<p>I hope that you found this article interesting, in the next article I will try to show you how to associate individual products with the hierarchy that we have built.</p>
+<p>I hope that you found this article interesting, in the next article I will try to show you how to add the second hierarchy for products, so each product can be seen in the context of 2 dimensions (we will use Grafana tool to visualize this).</p>
 
 <p>All the scripts presented in this article can be found also on <a href="https://github.com/dwhacademy/demoproject.git">GitHub</a>, feel free to use them and try to improve!</p>
 
