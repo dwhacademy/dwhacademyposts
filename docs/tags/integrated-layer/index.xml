@@ -6,10 +6,20 @@
     <description>Recent content in integrated layer on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/integrated-layer/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Connecting Products to Hierarchy in 3NF model</title>
+      <link>https://posts.dwhacademy.com/connecting_products_to_hierarchy/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/connecting_products_to_hierarchy/</guid>
+      <description>This article is the second part of the series of how to cope with hierarchies in 3NF models (Hierarchies in 3NF model). If you have not read the previous one yet, I strongly encourage you to read it because from time to time in this article I will be referring to the previous article in the series.
+Today I will show you how to connect underlying products with their hierarchy.</description>
+    </item>
     
     <item>
       <title>Hierarchies in 3NF model</title>
