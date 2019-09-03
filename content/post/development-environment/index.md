@@ -33,7 +33,7 @@ Similarily with the procedures which are defined after the views. Level 0 proced
 But that is typically only in lower environments like development or sandboxes,  to make the life of the developers easier, letting them focus more on the creative work, not wasting the energy on routine tasks which can be automated.
 
 ## Demo project repository 
-Better to show it on a practical example. Our [Demo project repository](https://github.com/dwhacademy/demoproject/tree/automation) is in the initial phase of development evolution, it only contains the code created to support the post series about hierarchies so far. But there are already defined some metadata views level 0 and 1, see the picture below.
+Better to show it on a practical example. Our [Demo project repository](https://github.com/dwhacademy/demoproject/tree/automation) is in the initial phase of development evolution, it only contains the code created to support the [post series about hierarchies](https://posts.dwhacademy.com/connecting_products_to_hierarchy/) so far. But there are already defined some metadata views level 0 and 1, see the picture below.
 
 <img src="/repo01.png" width="800px" alt="code repository"/>
 
