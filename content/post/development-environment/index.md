@@ -1,5 +1,5 @@
 ---
-title: "How to setup controlled development environment"
+title: "How to setup a controlled development environment"
 image: "environment"
 date: 2019-09-03
 tags: [dwh, deployment, automation, repository]
