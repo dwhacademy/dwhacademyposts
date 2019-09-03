@@ -6,10 +6,20 @@
     <description>Recent content in Posts on DWH Academy Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to setup controlled development environment</title>
+      <link>https://posts.dwhacademy.com/development-environment/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/development-environment/</guid>
+      <description>In my prior post How to keep the DWH entropy increase sustainable, I was talking about the essential rules for creating a controlled development environment. After such a theoretical introduction, it is time for the practical lesson.
+The main goal of this post is to show how to organize a code repository and how to keep the repository in sync with the database environment. Well organized, completely transparent and controlled development environment is the precondition for any successful project.</description>
+    </item>
     
     <item>
       <title>Connecting Products to Hierarchy in 3NF model</title>

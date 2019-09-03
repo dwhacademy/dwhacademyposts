@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>How to setup controlled development environment | DWH Academy Posts</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>How to setup controlled development environment</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-09-03
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/lubomir-kamensky/">Lubomir Kamensky</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/deployment/">deployment</a>, <a href="https://posts.dwhacademy.com/tags/automation/">automation</a>, <a href="https://posts.dwhacademy.com/tags/repository/">repository</a>
+    </div>
+  
+  
+
+<p>In my prior post <a href="https://posts.dwhacademy.com/sustainable-entropy-increase/">How to keep the DWH entropy increase sustainable</a>, I was talking about the essential rules for creating a controlled development environment. After such a theoretical introduction, it is time for the practical lesson.</p>
+
+<p>The main goal of this post is to show how to organize a code repository and how to keep the repository in sync with the database environment. Well organized, completely transparent and controlled development environment is the precondition for any successful project.</p>
+
+<p><img src="environment.png" width="800px" alt="environment"/></p>
+
+<h2 id="code-repository-structure">Code repository structure</h2>
+
+<p>There are two main drivers of the repository structure design.</p>
+
+<h3 id="developer-work">Developer work</h3>
+
+<p>The first driver is the effective work of developers. The developer should feel really comfortable with the repository structure. To simplify the work, it is worth considering all the contexts in which developers navigate through the code.</p>
+
+<p>Typically there is a split by the database layers. In big projects, with thousands of scripts, the split can go further to subject areas or even to main target entities.</p>
+
+<p>Except of such &ldquo;target&rdquo; context, there is &ldquo;Source&rdquo; context as well, so the directory structure can split also based on the source system streams.</p>
+
+<h3 id="deployment-order">Deployment order</h3>
+
+<p>The second driver of the repository structure is the support for a straightforward definition of the deployment order of all database objects. The deployment order is driven by object dependencies. The first level of dependencies is defined by the object type. The chain starts with the tables which are deployed first. Then we can continue with views and finally with procedures or macros.</p>
+
+<p>The second level of dependencies is defined within one object type. This is relevant for the views and procedures.  It is not good to define the object dependencies on object-level, specifying the deployment order object by object. Such a system is very hard to maintain, forcing us to rename many objects within each change.</p>
+
+<p>It is much easier to split objects into groups having the same level of dependency. Starting with the views. Level 0 views are only built on top of the tables, level 1 views are built on top of tables and level 0 views. Level 2 views are built on top of tables, level 0 views, and level 1 views. And so on based on the project requirements, usually there are objects up to level 3 but that is not any dogma.</p>
+
+<p>Similarily with the procedures which are defined after the views. Level 0 procedures are built on top of tables and views only. Level 1 procedures are built on top of tables, views and level 0 procedures. Still the same approach, no surprises. Part of the deployment can be also a load of the source data, collecting statistics on loaded tables and sometimes even the initial build of the whole data model.</p>
+
+<p>But that is typically only in lower environments like development or sandboxes,  to make the life of the developers easier, letting them focus more on the creative work, not wasting the energy on routine tasks which can be automated.</p>
+
+<h2 id="demo-project-repository">Demo project repository</h2>
+
+<p>Better to show it on a practical example. Our <a href="https://github.com/dwhacademy/demoproject/tree/automation">Demo project repository</a> is in the initial phase of development evolution, it only contains the code created to support the post series about hierarchies so far. But there are already defined some metadata views level 0 and 1, see the picture below.</p>
+
+<p><img src="/repo01.png" width="800px" alt="code repository"/></p>
+
+<p>You can see the whole repository structure on the picture above. There are two top-level folders <a href="https://github.com/dwhacademy/demoproject/tree/automation/automation">automation</a> and <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql">sql</a>. Content of automation folder we are going to cover later. The sql folder contains all project database objects. There are 3 main subfolders: <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/1_layers">1_layers</a>, <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/2_load">2_load</a>, <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/3_exe">3_exe</a>. Each folder name starts with a number, this way we have under control the position of folders in the repository structure for easy navigation.</p>
+
+<h3 id="1-layers">1_layers</h3>
+
+<p>It contains the database objects organized into DWH database layers as described in the post <a href="https://posts.dwhacademy.com/proven-design/">Proven DWH design</a>: <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/1_layers/1_stage">1_stage</a>, <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/1_layers/2_integrated">2_integrated</a>, <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/1_layers/3_access/views">3_access</a>.  Additionally, we have here also a Metadata layer <a href="https://github.com/dwhacademy/demoproject/tree/automation/sql/1_layers/4_meta/views">4_meta</a> in this project. We will talk about it soon.</p>
+
+<h3 id="2-load">2_load</h3>
+
+<p>There are plenty of approaches on how to organize the components used for building the data model. We use a simple one, having one procedure to build one database layer in which we are calling sequentially the procedures loading step by step all tables in the database. Even with this primitive approach, we can organize build components into parallel blocks and load data in parallel whenever it is possible. But that&rsquo;s probably a topic for another post.  For now, it is good to know that we store objects organizing the load of data in this folder.  But only the procedure definitions, not their executions.</p>
+
+<h3 id="3-exe">3_exe</h3>
+
+<p>In this folder, we store scripts for execution. Execution scripts may be related to tracking the information about the deployment or to the data load or to the testing.</p>
+
+<h2 id="deployment-automation">Deployment automation</h2>
+
+<p>Good repository structure is essential but it is not enough.  It&rsquo;s great to have a well-organized code repository but without the ability to keep it in sync with the database environments, it doesn&rsquo;t make much sense.</p>
+
+<p>Deployment of the latest code into the database has to be just a matter of decision. The rest is automated, the only required action is pressing one button.
+Simple, fast, consistent, documented. Deployment needs to become an everyday routine for every developer. It should be repeated as frequently as possible during the whole development cycle. Then there are much fewer surprises during the deployment to production.</p>
+
+<p>Automated deployment is not difficult to achieve, what is much harder is the full continuous integration, covering not only the deployment itself but also automated testing and the whole company quality approval process. That goes far beyond the topic of this post and honestly, it is still pure science fiction in most of the real DWH projects.  But what I want to highlight here, is that it makes perfect sense to automate deployment, perhaps with initial load and few tests, even thou you can use it just in the development environments. This approach radically speeds up the development and significantly improve the quality of the results.</p>
+
+<p>With the automated deployment, you perfectly know at any moment of time what version of code you have in any database environment. You do not accumulate garbage and at any point of time, you are ready to deploy the whole solution to a new sandbox, to delegate some piece of work to someone else, to develop several new features or work on bugs in parallel.</p>
+
+<h3 id="jenkins">Jenkins</h3>
+
+<p>A perfect automation tool is <a href="https://jenkins.io">Jenkins</a>. It offers everything you need to create automation jobs. It provides the GUI to define and access all the jobs, it provides also robust logging system. The code of the job is defined as a sequence of steps called Pipeline. Below you can see the definition of deployment job. It starts with cleaning the workspace, then it makes a local copy of the code repository, then it copies the code of the deployment tool itself and follows the steps in the pipeline. Within the steps, you can use Jenkins plugins or call some shell scripts.</p>
+
+<script src="https://gist.github.com/lubomirkamensky/875b8fa954b9716850c61236f47f60c5.js"></script>
+
+<p>One of the defined steps is creating the deployment package. We use simple shell script for that.</p>
+
+<script src="https://gist.github.com/lubomirkamensky/dc6026a52b32fed261e4fd6e547f4cee.js"></script>
+
+<p>The content of the deployment package is specified using a configuration file. It defines both dictionary of database names in all possible environments, and the list of deployed objects in required deployment order.</p>
+
+<p><img src="/repo02.png" width="800px" alt="code repository"/></p>
+
+<p>The complete configuration file is here</p>
+
+<script src="https://gist.github.com/lubomirkamensky/efab28bd16331766a98461211b7588b6.js"></script>
+
+<p>The deployment job is executed from a simple graphical interface where we specify the target environment, the source branch in GIT and our database credentials.</p>
+
+<p><img src="/jenkins01.png" width="800px" alt="code repository"/></p>
+
+<p>During execution you can see the sequence of job being processed</p>
+
+<p><img src="/jenkins02.png" width="800px" alt="code repository"/></p>
+
+<p>Also you get the complete log containing console output of all scripts being executed where you can analyse errors in case of job failure</p>
+
+<p><img src="/jenkins03.png" width="800px" alt="code repository"/></p>
+
+<h3 id="deployment-metadata">Deployment metadata</h3>
+
+<p>To get full control over our deployments, it is useful to create simple metadata views providing the overview about all database objects, including the details when the object was deployed, who did the deployment and which branch in GIT repository was used.</p>
+
+<p>The final picture is here</p>
+
+<p><img src="/meta01.png" width="800px" alt="code repository"/></p>
+
+<p>The view is based on the system catalog objects</p>
+
+<script src="https://gist.github.com/lubomirkamensky/e1363eb45235ecd9ad9b280b701941ae.js"></script>
+
+<p>Adding some extra information to it. As the system catalog in Postgres doesn&rsquo;t contain the information about time database object changes, we add such information by ourself using one simple procedure, which we call within any object DDL.</p>
+
+<script src="https://gist.github.com/lubomirkamensky/77a1af9352d6eb417b3b931a17624086.js"></script>
+
+<p>There are two metadata tables we created to support our views. First with information about the deployment itself, second with deployment time for each object. As you could see in the deployment configuration file, there specific files deployed in the beginning and the end of the deployment. This files also contain the call of the procedure updating the deployment information in our metadata tables.</p>
+
+<script src="https://gist.github.com/lubomirkamensky/c737a10c39c993853051523b4bee33df.js"></script>
+
+<script src="https://gist.github.com/lubomirkamensky/2244f98e2007103bb7c028ee7c661393.js"></script>
+
+<p>All codes are fully functional for Postgres database, ready in our <a href="https://github.com/dwhacademy/demoproject/tree/automation">GitHub repository Demo project</a></p>
+
+<p>Some useful links about Jenkins are here:
+<a href="https://jenkins.io/doc/book/pipeline/jenkinsfile/">https://jenkins.io/doc/book/pipeline/jenkinsfile/</a></p>
+
+<p><a href="https://www.blazemeter.com/blog/how-to-use-the-jenkins-declarative-pipeline/">https://www.blazemeter.com/blog/how-to-use-the-jenkins-declarative-pipeline/</a></p>
+
+<p><a href="https://digitalvarys.com/jenkins-declarative-pipeline-with-examples/">https://digitalvarys.com/jenkins-declarative-pipeline-with-examples/</a></p>
+
+<p><a href="https://www.cloudbees.com/sites/default/files/declarative-pipeline-refcard.pdf">https://www.cloudbees.com/sites/default/files/declarative-pipeline-refcard.pdf</a></p>
+
+<p><a href="https://gist.github.com/HarshadRanganathan/97feed7f91b7ae542c994393447f3db4">https://gist.github.com/HarshadRanganathan/97feed7f91b7ae542c994393447f3db4</a></p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
