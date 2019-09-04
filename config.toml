@@ -4,7 +4,7 @@ publishDir = "docs"
 baseURL = "https://posts.dwhacademy.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "DWH Academy Posts"
+title = "DWH Academy Posts: Agile Data warehousing in the practise"
 theme = "cayman-hugo-theme"
 
 # Google analytics
