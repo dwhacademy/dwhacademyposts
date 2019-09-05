@@ -133,4 +133,4 @@ The second and the last step in denormalization exercise is to pivot the data fr
 
 I hope that you found this article interesting, in the next article I will try to show you how to associate individual products with the hierarchy that we have built.
 
-All the scripts presented in this article can be found also on [GitHub](https://github.com/dwhacademy/demoproject.git), feel free to use them and try to improve!
+All the scripts presented in this article can be found also on [GitHub](https://github.com/dwhacademy/demoproject/tree/POST-Hierarchies-in-3NF-model), feel free to use them and try to improve!
