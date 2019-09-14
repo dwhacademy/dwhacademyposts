@@ -1,5 +1,5 @@
 ---
-title: "DWH Design patterns in practice: Logging as essential part of the controlled development environment"
+title: "DWH Design patterns in practice: Logging as an essential part of the controlled development environment"
 image: "logging"
 date: 2019-09-14
 tags: [dwh, logging]
@@ -41,7 +41,7 @@ Having the Load identification ready, we can create the logging table itself:
 
 <script src="https://gist.github.com/lubomirkamensky/bb896ee73d9822bfbfd5b4092b92b39e.js"></script>
 
-And show how to use it in load procedures. The way how to get the number of affected records for each execution step varies between different databases.  Here is how it is done in the Postgres. There is a logging after any interaction with the database, in our case we have two such steps, delete from table and insert into table.
+And show how to use it in load procedures. The way how to get the number of affected records for each execution step varies between different databases.  Here is how it is done in the Postgres. There is logging after any interaction with the database, in our case we have two such steps, delete from the table and insert into the table.
 
 <script src="https://gist.github.com/lubomirkamensky/6ef08de32dd0439e51f695f1fb23d92d.js"></script>
 
@@ -53,4 +53,6 @@ Having all parts in place we can  look into the logging table records:
 And now let's compare the logging records between two different versions of our code, current version in development environment and prior version in sandbox 03
 
 <script src="https://gist.github.com/lubomirkamensky/3107264d43bb4d1cfbaf10d5c57c7942.js"></script>
+
+All fully functional code is available in our (Demo Project Repository on GitHub)[https://github.com/dwhacademy/demoproject/tree/issue-6-implement_logging].
 

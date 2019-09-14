@@ -22,7 +22,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
-  <title>DWH Design patterns in practice: Logging as essential part of the controlled development environment | DWH Academy Posts: Agile Data warehousing in the practise</title>
+  <title>DWH Design patterns in practice: Logging as an essential part of the controlled development environment | DWH Academy Posts: Agile Data warehousing in the practise</title>
 </head>
 
 <body>
@@ -72,7 +72,7 @@
 
   <section class="main-content">
     
-  <h1>DWH Design patterns in practice: Logging as essential part of the controlled development environment</h1>
+  <h1>DWH Design patterns in practice: Logging as an essential part of the controlled development environment</h1>
   <div>
     
     <strong>Publish date: </strong>2019-09-14
@@ -145,7 +145,7 @@ Let&rsquo;s look into the implementation of such logging.  First of all, we nee
 
 <script src="https://gist.github.com/lubomirkamensky/bb896ee73d9822bfbfd5b4092b92b39e.js"></script>
 
-<p>And show how to use it in load procedures. The way how to get the number of affected records for each execution step varies between different databases.  Here is how it is done in the Postgres. There is a logging after any interaction with the database, in our case we have two such steps, delete from table and insert into table.</p>
+<p>And show how to use it in load procedures. The way how to get the number of affected records for each execution step varies between different databases.  Here is how it is done in the Postgres. There is logging after any interaction with the database, in our case we have two such steps, delete from the table and insert into the table.</p>
 
 <script src="https://gist.github.com/lubomirkamensky/6ef08de32dd0439e51f695f1fb23d92d.js"></script>
 
@@ -156,6 +156,8 @@ Let&rsquo;s look into the implementation of such logging.  First of all, we nee
 <p>And now let&rsquo;s compare the logging records between two different versions of our code, current version in development environment and prior version in sandbox 03</p>
 
 <script src="https://gist.github.com/lubomirkamensky/3107264d43bb4d1cfbaf10d5c57c7942.js"></script>
+
+<p>All fully functional code is available in our (Demo Project Repository on GitHub)[<a href="https://github.com/dwhacademy/demoproject/tree/issue-6-implement_logging">https://github.com/dwhacademy/demoproject/tree/issue-6-implement_logging</a>].</p>
 
   
 
