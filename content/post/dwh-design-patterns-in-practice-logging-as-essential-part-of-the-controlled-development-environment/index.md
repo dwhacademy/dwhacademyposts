@@ -54,5 +54,5 @@ And now let's compare the logging records between two different versions of our 
 
 <script src="https://gist.github.com/lubomirkamensky/3107264d43bb4d1cfbaf10d5c57c7942.js"></script>
 
-All fully functional code is available in our (Demo Project Repository on GitHub)[https://github.com/dwhacademy/demoproject/tree/issue-6-implement_logging].
+All fully functional code is available in our [Demo Project Repository on GitHub](https://github.com/dwhacademy/demoproject/tree/issue-6-implement_logging).
 
