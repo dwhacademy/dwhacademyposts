@@ -45,7 +45,6 @@ And show how to use it in load procedures. The way how to get the number of affe
 
 <script src="https://gist.github.com/lubomirkamensky/6ef08de32dd0439e51f695f1fb23d92d.js"></script>
 
-
 Having all parts in place we can  look into the logging table records:
 
 <img src="/log01.png" width="800px" alt="logging table"/>
