@@ -4,18 +4,58 @@
   
   <url>
     <loc>https://posts.dwhacademy.com/authors/lubomir-kamensky/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://posts.dwhacademy.com/authors/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://posts.dwhacademy.com/categories/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/dwh-design-patterns-in-practice-logging-as-essential-part-of-the-controlled-development-environment/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/categories/logging/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/post/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/tags/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/tags/dwh/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://posts.dwhacademy.com/tags/logging/</loc>
+    <lastmod>2019-09-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -37,23 +77,6 @@
   </url>
   
   <url>
-    <loc>https://posts.dwhacademy.com/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://posts.dwhacademy.com/post/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://posts.dwhacademy.com/tags/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://posts.dwhacademy.com/tags/automation/</loc>
     <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -61,12 +84,6 @@
   
   <url>
     <loc>https://posts.dwhacademy.com/tags/deployment/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://posts.dwhacademy.com/tags/dwh/</loc>
     <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

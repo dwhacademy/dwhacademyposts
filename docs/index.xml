@@ -6,10 +6,19 @@
     <description>Recent content in Latest Posts on DWH Academy Posts: Agile Data warehousing in the practise</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DWH Design patterns in practice: Logging as essential part of the controlled development environment</title>
+      <link>https://posts.dwhacademy.com/dwh-design-patterns-in-practice-logging-as-essential-part-of-the-controlled-development-environment/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/dwh-design-patterns-in-practice-logging-as-essential-part-of-the-controlled-development-environment/</guid>
+      <description>In my prior post How to setup a controlled development environment, we talked about the automation of the deployment as the first step to the controlled development environment. Having controlled deployment, the next step is to get control over the data loads. The goal of this post is to show a simple way of tracking all steps of the data load in a logging table. Benefits of the logging There are many benefits to having a good logging system.</description>
+    </item>
     
     <item>
       <title>How to setup a controlled development environment</title>

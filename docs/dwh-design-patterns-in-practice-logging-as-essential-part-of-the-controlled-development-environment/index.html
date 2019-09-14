@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Data warehouse best practices. DWH Architecture, Collecting business requirements, Source file definition, Data modeling, Source to target mapping, History handling, Data lineage, Logging, DQ monitoring, Data load management, Source file/landing area management, Metadata/configuration management, GIT - code versioning, Code repository structure, SQL best practices, Coding rules, Deployment automation, Bug fixing, Testing">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>DWH Design patterns in practice: Logging as essential part of the controlled development environment | DWH Academy Posts: Agile Data warehousing in the practise</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>DWH Design patterns in practice: Logging as essential part of the controlled development environment</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-09-14
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/lubomir-kamensky/">Lubomir Kamensky</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/logging/">logging</a>
+    </div>
+  
+  
+
+<p>In my prior post <a href="https://posts.dwhacademy.com/development-environment/">How to setup a controlled development environment</a>, we talked about the automation of the deployment as the first step to the controlled development environment. Having controlled deployment, the next step is to get control over the data loads.  The goal of this post is to show a simple way of tracking all steps of the data load in a logging table. </p>
+
+<h3 id="benefits-of-the-logging">Benefits of the logging</h3>
+
+<p>There are many benefits to having a good logging system.  The main is the transparency of the data load process.  It is clear what steps were executed during the load and what changes happened in data within each step.  It is easy to recognize that something went wrong and it is possible to compare different loads in the same or even in different database environments.</p>
+
+<p>Deploying different versions of the code into two separate environments and loading the model using the same source data we can quickly see the impacts of the code change to the data load.</p>
+
+<p>Typically we use the logging table to find out:</p>
+
+<ul>
+<li><p>the reason for the load failure</p></li>
+
+<li><p>whether data from all sources were loaded</p></li>
+
+<li><p>impacts of any code change</p></li>
+</ul>
+
+<p>A logging table is a simple but powerful tool used in all environments, starting from the development database. It is part of project metadata. 
+Let&rsquo;s look into the implementation of such logging.  First of all, we need to introduce an identification for the entire data load.</p>
+
+<p>It can be done using one simple table:</p>
+
+<script src="https://gist.github.com/lubomirkamensky/8cac3fefb719a9774085461251238b94.js"></script>
+    
+
+<p>And pair of procedures, one  starting each data load:</p>
+
+<script src="https://gist.github.com/lubomirkamensky/34d27d8c0a0343e456941cf07a6e73d4.js"></script>
+
+<p>And another ending the data load:</p>
+
+<script src="https://gist.github.com/lubomirkamensky/6bc9f2fd9701312230203abc803c8356.js"></script>
+
+<p>Having the Load identification ready, we can create the logging table itself:</p>
+
+<script src="https://gist.github.com/lubomirkamensky/bb896ee73d9822bfbfd5b4092b92b39e.js"></script>
+
+<p>And show how to use it in load procedures. The way how to get the number of affected records for each execution step varies between different databases.  Here is how it is done in the Postgres. There is a logging after any interaction with the database, in our case we have two such steps, delete from table and insert into table.</p>
+
+<script src="https://gist.github.com/lubomirkamensky/6ef08de32dd0439e51f695f1fb23d92d.js"></script>
+
+<p>Having all parts in place we can  look into the logging table records:</p>
+
+<p><img src="/log01.png" width="800px" alt="logging table"/></p>
+
+<p>And now let&rsquo;s compare the logging records between two different versions of our code, current version in development environment and prior version in sandbox 03</p>
+
+<script src="https://gist.github.com/lubomirkamensky/3107264d43bb4d1cfbaf10d5c57c7942.js"></script>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>
