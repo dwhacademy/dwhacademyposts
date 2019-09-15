@@ -9,6 +9,8 @@ authors: [Lubomir Kamensky]
 
 In my prior post [How to setup a controlled development environment](https://posts.dwhacademy.com/development-environment/), we talked about the automation of the deployment as the first step to the controlled development environment. Having controlled deployment, the next step is to get control over the data loads.  The goal of this post is to show a simple way of tracking all steps of the data load in a logging table. 
 
+<img src="logging.png" width="800px" alt="logging"/>
+
 ### Benefits of the logging
 There are many benefits to having a good logging system.  The main is the transparency of the data load process.  It is clear what steps were executed during the load and what changes happened in data within each step.  It is easy to recognize that something went wrong and it is possible to compare different loads in the same or even in different database environments.
 
