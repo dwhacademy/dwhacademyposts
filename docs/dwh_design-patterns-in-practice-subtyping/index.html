@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Data warehouse best practices. DWH Architecture, Collecting business requirements, Source file definition, Data modeling, Source to target mapping, History handling, Data lineage, Logging, DQ monitoring, Data load management, Source file/landing area management, Metadata/configuration management, GIT - code versioning, Code repository structure, SQL best practices, Coding rules, Deployment automation, Bug fixing, Testing">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>DWH Design patterns in practice: Subtyping | DWH Academy Posts: Agile Data warehousing in the practise</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>DWH Design patterns in practice: Subtyping</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-10-07
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/grzegorz-swierniak/">Grzegorz Swierniak</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/subtyping/">subtyping</a>, <a href="https://posts.dwhacademy.com/tags/supertype/">supertype</a>, <a href="https://posts.dwhacademy.com/tags/abstraction/">abstraction</a>, <a href="https://posts.dwhacademy.com/tags/subtype/">subtype</a>
+    </div>
+  
+  
+
+<p>Subtyping is a very powerful tool used in the relational models. In this article, I would like to show you why this technique is widely used in many data warehouses and how to implement it in your project, based on the party entity, probably the most common example. </p>
+
+<p><img src="subtyping.png" width="800px" alt="subtyping"/></p>
+
+<h3 id="definition">Definition</h3>
+
+<p>Let begin with the definition - subtyping is a technique where an entity is broken into Supertype entity with common (shared) attributes, and also 2 or more Subtype entities that contain attributes that are unique for those 2 or more entities. In fact, from my experience, Subtype entities are created first as regular entities in the logical model and after some time, it can be noticed that the entities can be abstracted to one group and as a result, a new Supertype entity is created. For example, we might create 2 entities &lsquo;Individual&rsquo; and &lsquo;Organization&rsquo;, both can be abstracted to one group called &lsquo;Party&rsquo;.</p>
+
+<p><img src="/party_1.png" width="800px" alt="subtyping model"/></p>
+
+<h3 id="why-subtyping">Why Subtyping?</h3>
+
+<p>There are a number of reasons why this technique is very useful. For me, the most important motivation is that relationships can be accurately modeled and enforced including those which apply to only one Subtype. Moreover, the number of relationships is significantly reduced because they can be built on the Supertype entity level and not every individual Subtype entity, it makes the model much simple.</p>
+
+<p>Other benefits of using Subtyping include:</p>
+
+<ul>
+<li><p>data integrity enforced at database level. (using NOT NULL column constraints)</p></li>
+
+<li><p>physical data model reflects true business rules</p></li>
+</ul>
+
+<p>On the picture below you can see 4 relationship tables (yellow headers), each of them is linked with m006_party table, if the subtyping technique would not be used, we would need to multiple number of relationships by 2, because each relationship table would need to be linked with both: m008_indiv and m009_org tables.
+<img src="/party_2.png" width="800px" alt="subtyping relationships"/>
+Feel free to copy the full model, just clone my project: <a href="https://repository.genmymodel.com/contact.dwhacademy/DWH-Academy">Demo_il model in genmymodel.com</a></p>
+
+<h3 id="discriminator">Discriminator</h3>
+
+<p>Before we jump to the implementation, it is worth mentioning, Subtype entities have to be mutually exclusive. There cannot be a Party that belongs to both groups, it is obvious that an individual cannot be an organization and vice versa. This logical requirement should be satisfied through the Discriminator - a column normally called &lsquo;Subtype&rsquo; that specifies to which Subtype entity a given object (Party) belongs to.</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>I do not intend to explain from scratch the way, how we believe it makes the most sense to maintain business logic in data warehouses but I feel a short recap from other articles is necessary.</p>
+
+<p>All business logics we keep in views, stored procedures are vehicles to move data from views to target tables. Structure of that views depends on type of target tables we build business logic for:</p>
+
+<p><b>Pattern 1 - Relationship tables</b>:</p>
+
+<ul>
+<li>Columns from Target table</li>
+</ul>
+
+<p><b>Pattern 2 - Target tables with Key tables</b>:</p>
+
+<ul>
+<li><p>Columns from Target table</p></li>
+
+<li><p>Columns from Key table</p></li>
+</ul>
+
+<p><b>Pattern 3 - Subtype tables with Key tables</b>:</p>
+
+<ul>
+<li><p>Columns from Supertype table</p></li>
+
+<li><p>Columns from Subtype table</p></li>
+
+<li><p>Columns from Key table</p></li>
+</ul>
+
+<p><b>No Pattern - Supertype tables with Key tables</b>:</p>
+
+<ul>
+<li>no views - business logic is kept at the Subtype level</li>
+</ul>
+
+<h3 id="views">Views</h3>
+
+<p>It is obvious that for our example we will use Pattern 3. We create 2 views, one for each Subtype table (w_008_indiv &amp; w_009_org). The views designed in that pattern will be used to:</p>
+
+<ul>
+<li><p>generate surrogate keys for the Key table at the Supertype level (k006_party_key)</p></li>
+
+<li><p>update the Supertype table</p></li>
+
+<li><p>update the Subtype table</p></li>
+</ul>
+
+<script src="https://gist.github.com/swiernia/412dd31e72514b29de279010645c2762.js"></script>
+When designing the views, you need to decide on the Natural Kay and what will be the Discriminator. In my first view, I used first_name||'#'||last_name and NK and 'Individual' as party_subtype that assigns those rows in the Supertype table to one group/table: m008_indiv.
+
+<script src="https://gist.github.com/swiernia/1fe9fc6c88148a2eabc03475a17dedba.js"></script>
+
+<h3 id="stored-procedures">Stored Procedures</h3>
+
+<p>As noted earlier, stored procedures are simple vehicles to move data from views to target tables. We will be inserting data to target tables, as a source we are using the same views. We have to follow the top down approach, starting with Supertype entities (Key and Target tables) and then move to Subtype entities.</p>
+
+<p>We cannot update the Supertype Target table (m006_party) if we are not sure that all individuals and organizations have surrogate keys, therefore we insert records to the Key table first (<b>k006_party_key</b>) and generate surrogate keys for all objects that do not have them yet. What is important here, we need to perform 2 insert statements, each one for each view.</p>
+
+<script src="https://gist.github.com/swiernia/9de3207fe605084b474513c940bbd4c6.js"></script>
+
+<p>The second procedure we can create (and execute) is the procedure that updates the Supertype table (<b>m006_party</b>). In my example, apart from party_id we have only one attribute which is in fact the Discriminator, but in practice, we will find other attributes that are common for all Subtype entities. If I would simplify my model, the attribute such is &lsquo;Address&rsquo; could be added to the Supertype entity as &lsquo;shared&rsquo; property.</p>
+
+<script src="https://gist.github.com/swiernia/1320f582951755db1f722fe4053a9326.js"></script>
+
+<p>The final step is to update Subtype tables with attributes that are unique to each of those groups - <b>m008_indiv</b>:</p>
+
+<script src="https://gist.github.com/swiernia/644fe1ed86bc11747ebe98110378e5f5.js"></script>
+
+<p>.. and <b>m009_org</b>:
+<script src="https://gist.github.com/swiernia/290c538fd948fd680f0f94f38a30c1c5.js"></script></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>I hope that you found this article useful. I encourage you to use this technique in your data warehouse since it is very powerful and easy to implement technique. If you have any experience with Subtyping, feel free to share this with us.</p>
+
+<p>Fully functional code is available in our <a href="https://github.com/dwhacademy/demoproject/tree/POST-Subtyping">Demo Project Repository on GitHub</a>.</p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>

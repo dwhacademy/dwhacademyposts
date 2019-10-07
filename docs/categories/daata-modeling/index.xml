@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daata Modeling on DWH Academy Posts: Agile Data warehousing in the practise</title>
+    <link>https://posts.dwhacademy.com/categories/daata-modeling/</link>
+    <description>Recent content in Daata Modeling on DWH Academy Posts: Agile Data warehousing in the practise</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://posts.dwhacademy.com/categories/daata-modeling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DWH Design patterns in practice: Subtyping</title>
+      <link>https://posts.dwhacademy.com/dwh_design-patterns-in-practice-subtyping/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/dwh_design-patterns-in-practice-subtyping/</guid>
+      <description>Subtyping is a very powerful tool used in the relational models. In this article, I would like to show you why this technique is widely used in many data warehouses and how to implement it in your project, based on the party entity, probably the most common example. Definition Let begin with the definition - subtyping is a technique where an entity is broken into Supertype entity with common (shared) attributes, and also 2 or more Subtype entities that contain attributes that are unique for those 2 or more entities.</description>
+    </item>
+    
+  </channel>
+</rss>
