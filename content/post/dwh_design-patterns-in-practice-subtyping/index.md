@@ -56,7 +56,7 @@ All business logics we keep in views, stored procedures are vehicles to move dat
 
 - no views - business logic is kept at the Subtype level
 
-<img src="patterns.png" width="800px" alt="patterns"/>
+<img src="/patterns.png" width="800px" alt="patterns"/>
 
 ### Views
 It is obvious that for our example we will use Pattern 3. We create 2 views, one for each Subtype table (w_008_indiv & w_009_org). The views designed in that pattern will be used to:
