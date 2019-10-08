@@ -18,20 +18,16 @@ Let begin with the definition - subtyping is a technique where an entity is brok
 
 
 ### Why Subtyping?
-There are a number of reasons why this technique is very useful. For me, the most important motivation is that relationships can be accurately modeled and enforced including those which apply to only one Subtype. Moreover, the number of relationships is significantly reduced because they can be built on the Supertype entity level and not every individual Subtype entity, it makes the model much simple.
+There are a number of reasons why this technique is very useful. For me, the most important motivation is that relationships can be accurately modeled and enforced including those which apply to only one Subtype. Moreover, the number of relationships is significantly reduced because they can be built on the Supertype entity level and not every individual Subtype entity, it makes the model much simpler.
 
-Other benefits of using Subtyping include:
-
-- data integrity enforced at database level. (using NOT NULL column constraints)
-
-- physical data model reflects true business rules
+The cost associated with Subtyping you need to take into account is abstraction. It is hard for some people to grasp. Typical abstract entities are: Party, Location, Event.
 
 On the picture below you can see 4 relationship tables (yellow headers), each of them is linked with m006_party table, if the subtyping technique would not be used, we would need to multiple number of relationships by 2, because each relationship table would need to be linked with both: m008_indiv and m009_org tables.
 <img src="/party_2.png" width="800px" alt="subtyping relationships"/>
 Feel free to copy the full model, just clone my project: [Demo_il model in genmymodel.com](https://repository.genmymodel.com/contact.dwhacademy/DWH-Academy)
 
 ### Discriminator
-Before we jump to the implementation, it is worth mentioning, Subtype entities have to be mutually exclusive. There cannot be a Party that belongs to both groups, it is obvious that an individual cannot be an organization and vice versa. This logical requirement should be satisfied through the Discriminator - a column normally called 'Subtype' that specifies to which Subtype entity a given object (Party) belongs to.
+Before we jump to the implementation, it is worth mentioning, Subtype entities can be mutually exclusive or mutually inclusive. The example, I prepared, is based on the first pattern where entities are mutually exclusive. There cannot be a Party that belongs to both groups, it is obvious that an individual cannot be an organization and vice versa. This logical requirement should be satisfied through the Discriminator - a column normally called 'Subtype' that specifies to which Subtype entity a given object (Party) belongs to.
 
 ### Implementation
 I do not intend to explain from scratch the way, how we believe it makes the most sense to maintain business logic in data warehouses but I feel a short recap from other articles is necessary.
@@ -60,6 +56,7 @@ All business logics we keep in views, stored procedures are vehicles to move dat
 
 - no views - business logic is kept at the Subtype level
 
+<img src="patterns.png" width="800px" alt="patterns"/>
 
 ### Views
 It is obvious that for our example we will use Pattern 3. We create 2 views, one for each Subtype table (w_008_indiv & w_009_org). The views designed in that pattern will be used to:
@@ -71,7 +68,7 @@ It is obvious that for our example we will use Pattern 3. We create 2 views, one
 - update the Subtype table
 
 <script src="https://gist.github.com/swiernia/412dd31e72514b29de279010645c2762.js"></script>
-When designing the views, you need to decide on the Natural Kay and what will be the Discriminator. In my first view, I used first_name||'#'||last_name and NK and 'Individual' as party_subtype that assigns those rows in the Supertype table to one group/table: m008_indiv.
+When designing the views, you need to decide on the Natural Kay and what will be the Discriminator. In my first view, I used first_name||'#'||last_name as NK and 'Individual' as party_subtype that assigns those rows in the Supertype table to one group/table: m008_indiv.
 
 <script src="https://gist.github.com/swiernia/1fe9fc6c88148a2eabc03475a17dedba.js"></script>
 
