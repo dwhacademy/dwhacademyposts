@@ -6,10 +6,46 @@
     <description>Recent content in Tags on DWH Academy Posts: Agile Data warehousing in the practise</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>dwh</title>
+      <link>https://posts.dwhacademy.com/tags/dwh/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/dwh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>error</title>
+      <link>https://posts.dwhacademy.com/tags/error/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>load</title>
+      <link>https://posts.dwhacademy.com/tags/load/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/load/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>https://posts.dwhacademy.com/tags/logging/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/tags/logging/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>abstraction</title>
@@ -17,15 +53,6 @@
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/tags/abstraction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dwh</title>
-      <link>https://posts.dwhacademy.com/tags/dwh/</link>
-      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/dwh/</guid>
       <description></description>
     </item>
     
@@ -53,15 +80,6 @@
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://posts.dwhacademy.com/tags/supertype/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>logging</title>
-      <link>https://posts.dwhacademy.com/tags/logging/</link>
-      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://posts.dwhacademy.com/tags/logging/</guid>
       <description></description>
     </item>
     

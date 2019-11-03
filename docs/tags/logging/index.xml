@@ -6,10 +6,19 @@
     <description>Recent content in logging on DWH Academy Posts: Agile Data warehousing in the practise</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://posts.dwhacademy.com/tags/logging/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DWH Design patterns in practice: How to deal with Data load errors</title>
+      <link>https://posts.dwhacademy.com/dwh-design-patterns-in-practice-how-to-deal-with-data-load-errors/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://posts.dwhacademy.com/dwh-design-patterns-in-practice-how-to-deal-with-data-load-errors/</guid>
+      <description>There are two main goals for dealing with data load errors. The first one is to minimize the impact of errors on the current usage of existing data in our data warehouse. The second is to speed up the analysis of error so it can be quickly fixed and the complete data load successfully finished. Problem isolation Let&amp;rsquo;s start with the first one. It is a good practice to isolate the problem so it is not impacting anything that is not directly related to it.</description>
+    </item>
     
     <item>
       <title>DWH Design patterns in practice: Logging as an essential part of the controlled development environment</title>
