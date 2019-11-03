@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Data warehouse best practices. DWH Architecture, Collecting business requirements, Source file definition, Data modeling, Source to target mapping, History handling, Data lineage, Logging, DQ monitoring, Data load management, Source file/landing area management, Metadata/configuration management, GIT - code versioning, Code repository structure, SQL best practices, Coding rules, Deployment automation, Bug fixing, Testing">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>DWH Design patterns in practice: How to deal with Data load errors | DWH Academy Posts: Agile Data warehousing in the practise</title>
+</head>
+
+<body>
+  <section class="page-header">
+  <a href="https://dwhacademy.com/" target="_blank"><img src='/dwhacad.png' height='80px'></a>
+  <h1 class="project-name">
+    DWH Academy Posts
+  </h1>
+  <h2 class="project-tagline">
+    Agile Data warehousing in the practise
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/" class="btn">Latest Posts</a>
+    
+      
+      
+      
+      
+      <a href="/categories/" class="btn">Main topics</a>
+    
+      
+      
+      
+      
+      <a href="/tags/" class="btn">Tags</a>
+    
+      
+      
+      
+      
+      <a href="/authors/" class="btn">Authors</a>
+    
+      
+      
+      
+      
+      <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>DWH Design patterns in practice: How to deal with Data load errors</h1>
+  <div>
+    
+    <strong>Publish date: </strong>2019-11-03
+  </div>
+  
+  
+    <div>
+      <strong>Authors: </strong>
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/authors/lubomir-kamensky/">Lubomir Kamensky</a>
+    </div>
+  
+  
+  
+    <div>
+      <strong>Tags: </strong>
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+      <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/load/">load</a>, <a href="https://posts.dwhacademy.com/tags/error/">error</a>, <a href="https://posts.dwhacademy.com/tags/logging/">logging</a>
+    </div>
+  
+  
+
+<p>There are two main goals for dealing with data load errors. The first one is to minimize the impact of errors on the current usage of existing data in our data warehouse. The second is to speed up the analysis of error so it can be quickly fixed and the complete data load successfully finished. </p>
+
+<p><img src="data_load_errors.png" width="800px" alt="Data load errors"/></p>
+
+<h3 id="problem-isolation">Problem isolation</h3>
+
+<p>Let&rsquo;s start with the first one. It is a good practice to isolate the problem so it is not impacting anything that is not directly related to it. It means that the error of one job doesn&rsquo;t stop the whole data flow.  So other data areas can be successfully loaded. </p>
+
+<h4 id="incremental-load-in-integrated-layer">Incremental load in Integrated layer</h4>
+
+<p>The question is how to deal with the data directly impacted by the data load error.  The answer is: It depends. The integrated layer usually contains a history and is loaded incrementally. I case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.</p>
+
+<h4 id="two-full-snapshots-in-access-layer">Two full snapshots in Access layer</h4>
+
+<p>There is a different scenario in the access layer or data marts that are not loaded incrementally but as a full snapshot. In such a case, we would lose the only data we have within the load error.  The possible solution is to keep two snapshots of data in each table, each distinguished by the load_id.</p>
+
+<p>This approach not only fixes the problem with losing the data, but it also provides additional benefits. We can provide data in the access layer during the whole load without any interruption. And we can even roll back to the prior snapshot if we later realize some problems in data. </p>
+
+<h3 id="error-analysis-support">Error analysis support</h3>
+
+<p>Now it is time to talk about the second goal. To speed up the analysis of error, we need the best possible description of the error, easily available for the analysts. The best approach is to improve the load status logging, extending it with error details and position of the last executed step in the data flow.
+Now let&rsquo;s dive into the implementation
+The logging table structure<script src="https://gist.github.com/lubomirkamensky/31571bab82bd12b7c95fdb8f4da0236e.js"></script></p>
+
+<p>We introduce exception handling into all our procedures in the following manner<code>
+EXCEPTION WHEN OTHERS THEN STATUS := 'Failure'; V_SQLERRM := SQLERRM; V_SQLSTATE := SQLSTATE;</code>
+<script src="https://gist.github.com/lubomirkamensky/6150ba77c31ba3855353830f3ada7fb6.js"></script></p>
+
+<p>All procedures will be called from one procedure driving the whole load of one particular data layer.Each called procedure has 5 parametersV_Load_ID - inputs load_id Status - returns back the status of the procedure callStep - returns back the last  executed step of the procedure callSQL_Error - returns back the SQL error in case of failure of the procedure call SQL_State - returns back the SQL state in case of failure of the procedure call</p>
+
+<p><script src="https://gist.github.com/lubomirkamensky/a4cde929abb5642bac2a36e35a7a9e16.js"></script>
+All vaiables returned back from each called procedure are logged into table load_stat
+We added Load_Id into all tables of AL</p>
+
+<p>There is view defined on top of each table
+We updated the delete statement for the tables so within each load  we keep a maximum of two full snapshots</p>
+
+  
+
+  
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dwh-academy-posts" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+
+
+    <footer class="site-footer">
+  <div class="site-footer-credits" style="text-align: center;">
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. <br/>Deployed to <a href="https://github.com/">GitHub</a>.<br/><br/>&copy; DWH Academy 2019
+  </span>
+</footer>
+
+  </section>
+  
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143050521-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+</body>
+</html>

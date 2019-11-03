@@ -3,7 +3,7 @@ title: "DWH Design patterns in practice: Subtyping"
 image: "subtyping"
 date: 2019-10-07
 tags: [dwh, subtyping, supertype, abstraction, subtype]
-categories: ["Daata Modeling"]
+categories: ["Data Modeling"]
 authors: [Grzegorz Swierniak]
 ---
 

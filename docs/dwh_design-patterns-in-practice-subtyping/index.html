@@ -8,16 +8,16 @@
   <meta name="generator" content="Hugo 0.55.6" />
   <link rel="stylesheet" href="https://posts.dwhacademy.com/css/normalize.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
-
-
+  
+  
+  
   <link rel="stylesheet" href="https://posts.dwhacademy.com/css/cayman.87415a4997c8d6c666624ff26c8812f27f42b4cf5dc18c45fc8dcb0cd7d6d2f5.css">
-
-
+  
+  
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
+  
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
@@ -35,89 +35,89 @@
     Agile Data warehousing in the practise
   </h2>
   <nav>
-
-
-
-
-
-
+    
+    
+      
+      
+      
+      
       <a href="/" class="btn">Latest Posts</a>
-
-
-
-
-
+    
+      
+      
+      
+      
       <a href="/categories/" class="btn">Main topics</a>
-
-
-
-
-
+    
+      
+      
+      
+      
       <a href="/tags/" class="btn">Tags</a>
-
-
-
-
-
+    
+      
+      
+      
+      
       <a href="/authors/" class="btn">Authors</a>
-
-
-
-
-
+    
+      
+      
+      
+      
       <a href="https://dwhacademy.com/" class="btn">DWH Academy</a>
-
+    
   </nav>
 </section>
 
   <section class="main-content">
-
+    
   <h1>DWH Design patterns in practice: Subtyping</h1>
   <div>
-
+    
     <strong>Publish date: </strong>2019-10-07
   </div>
-
-
+  
+  
     <div>
       <strong>Authors: </strong>
-
-
-
-
-
+      
+        
+        
+        
+      
       <a href="https://posts.dwhacademy.com/authors/grzegorz-swierniak/">Grzegorz Swierniak</a>
     </div>
-
-
-
+  
+  
+  
     <div>
       <strong>Tags: </strong>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
       <a href="https://posts.dwhacademy.com/tags/dwh/">dwh</a>, <a href="https://posts.dwhacademy.com/tags/subtyping/">subtyping</a>, <a href="https://posts.dwhacademy.com/tags/supertype/">supertype</a>, <a href="https://posts.dwhacademy.com/tags/abstraction/">abstraction</a>, <a href="https://posts.dwhacademy.com/tags/subtype/">subtype</a>
     </div>
-
-
+  
+  
 
 <p>Subtyping is a very powerful tool used in the relational models. In this article, I would like to show you why this technique is widely used in many data warehouses and how to implement it in your project, based on the party entity, probably the most common example. </p>
 
@@ -141,7 +141,7 @@ Feel free to copy the full model, just clone my project: <a href="https://reposi
 
 <h3 id="discriminator">Discriminator</h3>
 
-<p>Before we jump to the implementation, it is worth mentioning, Subtype entities can be mutually exclusive or mutually inclusive. The example, I prepared, is based on the first pattern where entities are mutually exclusive. There cannot be a Party that belongs to both groups, it is obvious that an individual cannot be an organization and vice versa. This logical requirement should be satisfied through the Discriminator - a column normally called 'Subtype' that specifies to which Subtype entity a given object (Party) belongs to.</p>
+<p>Before we jump to the implementation, it is worth mentioning, Subtype entities can be mutually exclusive or mutually inclusive. The example, I prepared, is based on the first pattern where entities are mutually exclusive. There cannot be a Party that belongs to both groups, it is obvious that an individual cannot be an organization and vice versa. This logical requirement should be satisfied through the Discriminator - a column normally called &lsquo;Subtype&rsquo; that specifies to which Subtype entity a given object (Party) belongs to.</p>
 
 <h3 id="implementation">Implementation</h3>
 
@@ -179,7 +179,7 @@ Feel free to copy the full model, just clone my project: <a href="https://reposi
 <li>no views - business logic is kept at the Subtype level</li>
 </ul>
 
-<img src="/patterns.png" width="400px" alt="patterns"/>
+<p><img src="/patterns.png" width="400px" alt="patterns"/></p>
 
 <h3 id="views">Views</h3>
 
@@ -223,15 +223,15 @@ When designing the views, you need to decide on the Natural Kay and what will be
 
 <p>Fully functional code is available in our <a href="https://github.com/dwhacademy/demoproject/tree/POST-Subtyping">Demo Project Repository on GitHub</a>.</p>
 
+  
 
-
-
+  
     <div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
-
-
-
+    
+    
+    
     };
     (function() {
         if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
@@ -246,7 +246,7 @@ When designing the views, you need to decide on the Natural Kay and what will be
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
+  
 
 
 
@@ -257,15 +257,15 @@ When designing the views, you need to decide on the Natural Kay and what will be
 </footer>
 
   </section>
-
-
+  
+  
   <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
   ga('create', 'UA-143050521-1', 'auto');
   ga('send', 'pageview');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
-
+  
 
 </body>
 </html>
