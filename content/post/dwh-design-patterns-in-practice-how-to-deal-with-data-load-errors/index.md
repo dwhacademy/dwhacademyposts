@@ -1,7 +1,7 @@
 ---
 title: "DWH Design patterns in practice: How to deal with Data load errors"
 image: "subtyping"
-date: 2019-11-05
+date: 2019-11-03
 tags: [dwh, load, error, logging]
 categories: ["Data load management","Logging"]
 authors: [Lubomir Kamensky]
@@ -15,9 +15,9 @@ There are two main goals for dealing with data load errors. The first one is to 
 Let's start with the first one. It is a good practice to isolate the problem so it is not impacting anything that is not directly related to it. It means that the error of one job doesn't stop the whole data flow.  So other data areas can be successfully loaded. 
 
 #### Incremental load in Integrated layer
-The question is how to deal with the data directly impacted by the data load error.  The answer is: It depends. The integrated layer usually contains a history and is loaded incrementally. I case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.
+The question is how to deal with the data directly impacted by the data load error.  The answer is "It depends". The integrated layer usually contains a history and is loaded incrementally. I case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.
 
-#### Two full snapshots in Access layer
+#### Data persistance - Two full snapshots of data in Access layer, the prior and latest load
 There is a different scenario in the access layer or data marts that are not loaded incrementally but as a full snapshot. In such a case, we would lose the only data we have within the load error.  The possible solution is to keep two snapshots of data in each table, each distinguished by the load_id. 
 
 This approach not only fixes the problem with losing the data, but it also provides additional benefits. We can provide data in the access layer during the whole load without any interruption. And we can even roll back to the prior snapshot if we later realize some problems in data. 
@@ -57,7 +57,7 @@ Load driving procedure for Access layer:
 ##### Loging the output of procedure calls
 All vaiables returned back from each called procedure are logged into table [load_stat](https://github.com/dwhacademy/demoproject/blob/issue-12-implement_load_error_resistance/sql/1_layers/4_meta/tables/load_stat.tbl).
 
-#### Data persistance - two data snapshots in Access layer
+#### Data persistance
 We added Load_Id into all tables of AL. Example here:
 <script src="https://gist.github.com/lubomirkamensky/e944813aeee577d6de129daceeee094c.js"></script>
 
