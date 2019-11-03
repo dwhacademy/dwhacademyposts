@@ -125,7 +125,7 @@
 
 <h4 id="incremental-load-in-integrated-layer">Incremental load in Integrated layer</h4>
 
-<p>The question is how to deal with the data directly impacted by the data load error.  The answer is &ldquo;It depends&rdquo;. The integrated layer usually contains a history and is loaded incrementally. I case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.</p>
+<p>The question is how to deal with the data directly impacted by the data load error.  The answer is &ldquo;It depends&rdquo;. The integrated layer usually contains a history and is loaded incrementally. In case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.</p>
 
 <h4 id="data-persistance-two-full-snapshots-of-data-in-access-layer-the-prior-and-latest-load">Data persistance - Two full snapshots of data in Access layer, the prior and latest load</h4>
 
