@@ -1,6 +1,6 @@
 ---
 title: "DWH Design patterns in practice: How to deal with Data load errors"
-image: "subtyping"
+image: "data_load_errors"
 date: 2019-11-03
 tags: [dwh, load, error, logging]
 categories: ["Data load management","Logging"]
@@ -15,7 +15,7 @@ There are two main goals for dealing with data load errors. The first one is to 
 Let's start with the first one. It is a good practice to isolate the problem so it is not impacting anything that is not directly related to it. It means that the error of one job doesn't stop the whole data flow.  So other data areas can be successfully loaded. 
 
 #### Incremental load in Integrated layer
-The question is how to deal with the data directly impacted by the data load error.  The answer is "It depends". The integrated layer usually contains a history and is loaded incrementally. In case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any uncomplete data to the target database.
+The question is how to deal with the data directly impacted by the data load error.  The answer is "It depends". The integrated layer usually contains a history and is loaded incrementally. In case of load failure we can still use the data, only the last increment is missing. To make this approach rock solid, the load jobs need to be defined as a transition, so in case of failure, the whole job for one particular entity is rolled back without inserting any incomplete data to the target database.
 
 #### Data persistance - Two full snapshots of data in Access layer, the prior and latest load
 There is a different scenario in the access layer or data marts that are not loaded incrementally but as a full snapshot. In such a case, we would lose the only data we have within the load error.  The possible solution is to keep two snapshots of data in each table, each distinguished by the load_id. 
